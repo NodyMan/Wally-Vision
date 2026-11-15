@@ -1,0 +1,53 @@
+SkyBlink — long explainer narration (about 2 minutes). For ElevenLabs, voice "Jamie".
+Developed with SI assistance (Claude); reviewed by team #1.
+Write "Sphere-X" (not "SPHEREx") so the voice says it right. Keep each paragraph as it is: each one is a scene.
+
+=== PASTE THIS INTO ELEVENLABS ===
+
+In 1930, Clyde Tombaugh found Pluto by flipping between two photos of the night sky, and spotting the one dot that moved.
+
+Today, NASA's Sphere-X telescope maps the whole sky every six months, in one hundred and two infrared colours. Somewhere in that archive are fast-moving brown dwarfs, asteroids, and maybe even a Planet X.
+
+But a whole year of motion is about one pixel, and the raw files are hard to open. SkyBlink makes it simple.
+
+Type a star's name, or pick one of five ready objects.
+
+SkyBlink finds every Sphere-X visit of that patch of sky, lines them up pixel to pixel, and plays them like a flipbook.
+
+Difference mode subtracts the first visit from the last. A star that moved leaves a black and white pair.
+
+And SkyBlink measures it. Epsilon Indi B moved six point oh, plus or minus one point one arcseconds. The catalogue predicts six and a half.
+
+Barnard's Star is so bright that its centre saturates the detector, so SkyBlink masks the core and still measures the shift: about twelve arcseconds.
+
+Sphere-X sees in a hundred and two colours. Slide through the bands, and watch the same sky change across the infrared.
+
+One click gives a spectrum, with water and methane marked, and a light curve of brightness over time.
+
+And when an honest number isn't possible, SkyBlink says so. R W Aurigae is too bright for this band, so its light curve is marked as saturated, not guessed.
+
+New to astronomy? Simple mode hides the expert tools, and a short trainer teaches the difference between real motion, a pulsing star, and a detector glitch.
+
+Found something interesting? Press "I found something" to save it to the community feed, as a candidate to check.
+
+SkyBlink works in English, Uzbek and Russian, on your desktop and on your phone.
+
+SkyBlink. See the sky move.
+
+=== WHAT EACH PARAGRAPH SHOWS ===
+1  Tombaugh          two real SPHEREx visits of Epsilon Indi B blinking side by side
+2  Sphere-X          NASA SVS SPHEREx animation (credit NASA/JPL-Caltech)
+3  problem           home page
+4  search            typing "Barnard" -> Barnard's Star opens; the five preset cards
+5  flipbook          Epsilon Indi B blink, zoomed
+6  difference        click Difference: black/white pair
+7  measured          lower third "6.0 ± 1.1″ · catalogue 6.5″"
+8  Barnard           Barnard's Star difference, masked saturated core (11.9 ± 1.3″ vs 10.4″)
+9  bands             wavelength slider D1 -> D6
+10 spectrum, curve   spectrum with H2O/CH4/CO2/CO marks, then the light curve
+11 honesty           RW Aurigae light curve: "saturated" message
+12 Simple mode       Simple mode toggle, then the /about trainer (three cases)
+13 report            "I found something!" dialog, then the /findings feed
+14 languages         EN -> UZ -> RU cuts, then the phone view
+15 end               end card with the live link
+(No sky-map scene: the CDS image-tile servers for Aladin were down on 15 Nov 2026.)

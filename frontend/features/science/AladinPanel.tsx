@@ -6,7 +6,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useViewer } from '@/lib/store';
 
-const ALADIN_JS = 'https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js';
+// The CDS address (aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js) answered 404 on 15 Nov 2026, so the
+// official npm build is used, pinned. It is an ES module (default export), loaded through a module script below.
+const ALADIN_JS = 'https://cdn.jsdelivr.net/npm/aladin-lite@3.8.2/dist/aladin.js';
 const SURVEYS = [
   { id: 'CDS/P/unWISE/color-W2-W1W2-W1', key: 'unwise' },
   { id: 'CDS/P/2MASS/color', key: 'twomass' },
@@ -19,15 +21,27 @@ declare global { interface Window { A?: AladinApi } }
 let loading: Promise<AladinApi> | null = null;
 function loadAladin(): Promise<AladinApi> {
   loading ??= new Promise<AladinApi>((resolve, reject) => {
-    const s = document.createElement('script');
-    s.src = ALADIN_JS;
-    s.async = true;
-    s.onload = () => {
+    const ready = 'skyblink-aladin-ready';
+    const failed = 'skyblink-aladin-failed';
+    const done = () => {
+      window.removeEventListener(ready, done);
+      window.removeEventListener(failed, fail);
       const A = window.A;
-      if (!A) return reject(new Error('aladin'));
-      Promise.resolve(A.init).then(() => resolve(A), reject);
+      if (!A) return fail();
+      Promise.resolve(A.init).then(() => resolve(A), fail);
     };
-    s.onerror = () => { loading = null; reject(new Error('aladin')); };
+    const fail = () => {
+      window.removeEventListener(ready, done);
+      window.removeEventListener(failed, fail);
+      loading = null;
+      reject(new Error('aladin'));
+    };
+    window.addEventListener(ready, done);
+    window.addEventListener(failed, fail);
+    const s = document.createElement('script');
+    s.type = 'module';
+    s.textContent = `import("${ALADIN_JS}").then((m) => { window.A = m.default; dispatchEvent(new Event("${ready}")); },`
+      + ` () => dispatchEvent(new Event("${failed}")));`;
     document.head.appendChild(s);
   });
   return loading;
