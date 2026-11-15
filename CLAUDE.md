@@ -84,7 +84,10 @@ Two teammate folders sit next to it. Read them, copy from them, never edit them:
   Playwright recordings of the app (`video/record_v3.mjs` takes A-C, `video/record_v4.mjs` takes D-G) timed to the
   team's ElevenLabs reading of `video/narration_v4.txt` by `video/build_video_v4.py` (synthesized music/SFX).
   Never narrate a WISE 0855 shift or Gaia/CatWISE overlays (no data while IRSA TAP is down).
-- Live site: https://frontend-three-xi-80.vercel.app. Without a reachable backend it uses its own demo API
+- Backend: Render service `skyblink-api` (https://skyblink-api.onrender.com, workspace "My Workspace", auto-deploys
+  on push to main; created on the Starter plan with a 5 GB disk). `.gitignore` must anchor `/skyblink/` (the teammate
+  folder): an unanchored rule hid `backend/skyblink/` (Django settings) from GitHub until 15 Nov 14:20.
+- Live site: https://frontend-three-xi-80.vercel.app (tries NEXT_PUBLIC_API_URL, then Render, then its demo API). Without a reachable backend it uses its own demo API
   (`frontend/app/api/[...path]`, data from `backend/scripts/export_demo_api.py`); `lib/api/platform.ts` probes
   `NEXT_PUBLIC_API_URL` for 6 s and falls back. The Vercel connector in this session is a different account.
 
