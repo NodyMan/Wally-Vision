@@ -91,6 +91,16 @@ Two teammate folders sit next to it. Read them, copy from them, never edit them:
   (`frontend/app/api/[...path]`, data from `backend/scripts/export_demo_api.py`); `lib/api/platform.ts` probes
   `NEXT_PUBLIC_API_URL` for 6 s and falls back. The Vercel connector in this session is a different account.
 
+## Pitch deck and explainer (15 Nov, afternoon)
+- Pitch deck (Slides artifact, private until shared): https://claude.ai/artifact/AHMUxJ7Dq2t8KUWKEECcWB — 13 slides,
+  speaker notes = the team's speeches, corrected: SPHEREx records "more than half a billion" objects (≈450 M
+  galaxies + >100 M stars), a year of motion is "about one pixel" (Barnard 10.3″/yr = 1.7 px), no RGB composite
+  (not built), Gaia/CatWISE arrows need IRSA TAP. #3's name is still "[name]".
+- Long explainer: `video/narration_long.txt` (15 paragraphs) + `video/build_video_long.py` (aligns scenes to any
+  reading by word timestamps) + `video/record_long.mjs` (takes H-M in C:\skyblink_video\longec).
+- Sky map: the CDS Aladin script URL returned 404, so `AladinPanel.tsx` loads aladin-lite@3.8.2 from jsDelivr (ES
+  module). CDS HiPS tile servers (alasky, alaskybis) were also down on 15 Nov: the map frame loads, tiles may not.
+
 ## Incident 14 Nov 22:47 (do not repeat)
 Four preset caches (wise-0855, epsilon-indi-b, rw-aurigae, r-draconis) appeared that were NOT made from IRSA data:
 integer MJDs, identical dates for all four, one constant wavelength, 0.0 masked pixels, no new downloads. They were
