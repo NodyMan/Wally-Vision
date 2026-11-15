@@ -25,6 +25,24 @@
 5. Если сервер не справляется с загрузками из IRSA во время показа: `SKYBLINK_ALLOW_COLD` = `0`
    (останутся только готовые поля, вместо 502 будет понятное сообщение).
 
+## 1b. Бэкенд на Hugging Face вместо Render (бесплатно, без карты)
+Проверено локально 15.11 с теми же переменными, что в `deploy/huggingface/Dockerfile`, и с пустым кэшем:
+5 пресетов, кадры, кривые блеска и спектры отвечают из репозитория без обращения к IRSA.
+1. Space уже создан: `huggingface.co/spaces/bymakhmud/SkyBlink` (SDK **Docker**, **CPU basic** — бесплатно).
+2. Space → **Settings** → **Variables and secrets** → **New secret**: `SECRET_KEY` = любая длинная случайная строка.
+   (Без него контейнер сам сделает случайный ключ при каждом старте — для API это не страшно.)
+3. В Git Bash из папки `hackathon`:
+   ```
+   bash deploy/huggingface/build_space.sh
+   cd /c/skyblink_deploy/hf-space && git push
+   ```
+   Скрипт кладёт PNG в git-lfs: без этого Hugging Face отклоняет push («contains binary files»).
+   Логин при push: имя `bymakhmud`, пароль — **токен с правом write** с huggingface.co/settings/tokens.
+4. Сборка 5–10 минут (вкладка **Logs** у Space). Проверка: `https://bymakhmud-skyblink.hf.space/api/health`.
+5. На Vercel: `NEXT_PUBLIC_API_URL` = `https://bymakhmud-skyblink.hf.space` (именно `*.hf.space`, не адрес
+   страницы huggingface.co). CORS для `*.vercel.app` уже разрешён в `settings.py`, ничего вписывать не надо.
+6. Space засыпает после 48 ч без запросов; просыпается за 1–2 минуты (сайт сам повторяет запросы 90 с).
+
 ## 2. Фронтенд на Vercel (5 мин)
 1. vercel.com → **Add New** → **Project** → репозиторий `skyblink`.
 2. **Root Directory**: `frontend`. Framework определится сам (Next.js).

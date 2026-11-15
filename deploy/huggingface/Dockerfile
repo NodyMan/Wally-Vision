@@ -19,5 +19,7 @@ USER user
 WORKDIR /app/backend
 RUN SECRET_KEY=build-only python manage.py collectstatic --noinput
 EXPOSE 7860
-CMD python manage.py migrate --noinput && \
+# SECRET_KEY should be a Space secret; without one, make a random key per start (the API keeps no logins).
+CMD export SECRET_KEY="${SECRET_KEY:-$(python -c 'import secrets; print(secrets.token_urlsafe(50))')}" && \
+    python manage.py migrate --noinput && \
     gunicorn skyblink.wsgi:application --bind 0.0.0.0:7860 --workers 1 --threads 8 --timeout 120
