@@ -80,8 +80,12 @@ Two teammate folders sit next to it. Read them, copy from them, never edit them:
   is cached as `{"error_code": "target_saturated"}`.
 - Blink and Difference stack different exposures: ε Ind B is 6.5 ± 0.7″ in Blink and 6.0 ± 1.1″ in Difference.
   Quote the Difference value (6.0 ± 1.1″ vs catalogue 6.5″) in the pitch.
-- Demo video: `video/SkyBlink_demo.mp4` (29 s), built by `video/capture.py` (headless Chrome screenshots of the
-  running app) + `video/make_video.py` (PIL + imageio-ffmpeg). No stock, YouTube or generated footage.
+- Demo video: `video/SkyBlink_demo.mp4` (29.3 s): NASA SVS SPHEREx animation (credit NASA/JPL-Caltech), then
+  a Playwright screen recording of the app (`video/record_v3.mjs`), cut to the team's ElevenLabs narration by
+  `video/build_video_v3.py` (synthesized music/SFX). The narration's WISE 0855 sentence is cut on purpose.
+- Live site: https://frontend-three-xi-80.vercel.app. Without a reachable backend it uses its own demo API
+  (`frontend/app/api/[...path]`, data from `backend/scripts/export_demo_api.py`); `lib/api/platform.ts` probes
+  `NEXT_PUBLIC_API_URL` for 6 s and falls back. The Vercel connector in this session is a different account.
 
 ## Incident 14 Nov 22:47 (do not repeat)
 Four preset caches (wise-0855, epsilon-indi-b, rw-aurigae, r-draconis) appeared that were NOT made from IRSA data:
