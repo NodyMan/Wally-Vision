@@ -43,6 +43,18 @@
    страницы huggingface.co). CORS для `*.vercel.app` уже разрешён в `settings.py`, ничего вписывать не надо.
 6. Space засыпает после 48 ч без запросов; просыпается за 1–2 минуты (сайт сам повторяет запросы 90 с).
 
+## 1c. Без бэкенда вообще: только Vercel (если Hugging Face пишет «Quota exceeded … limit=0»)
+Сайт сам отвечает за 5 объектов: `frontend/app/api/[...path]/route.ts` отдаёт настоящие результаты,
+выгруженные из бэкенда (`backend/scripts/export_demo_api.py` → `frontend/lib/demo/demo-data.json` и
+`frontend/public/api/frame/*.png`): мигание, разность, все длины волн, кривые блеска, спектры, сдвиг 6.0 ± 1.1″.
+Поиск понимает имена 5 объектов и координаты. Другие поля и каталоги Gaia/CatWISE честно отвечают
+«недоступно» — без бэкенда их не посчитать.
+1. Vercel → проект → **Settings** → **Environment Variables**: **удалить** `NEXT_PUBLIC_API_URL`.
+2. **Deployments** → последний → **⋯** → **Redeploy** (переменные `NEXT_PUBLIC_*` вшиваются при сборке).
+3. Проверка: `https://<проект>.vercel.app/api/health` → `{"status":"ok","mode":"demo"}`.
+Когда появится бэкенд, вернуть `NEXT_PUBLIC_API_URL` и сделать Redeploy.
+После новых данных в `prefetch.py`/`warm_science.py`: запустить бэкенд и `python scripts/export_demo_api.py`.
+
 ## 2. Фронтенд на Vercel (5 мин)
 1. vercel.com → **Add New** → **Project** → репозиторий `skyblink`.
 2. **Root Directory**: `frontend`. Framework определится сам (Next.js).

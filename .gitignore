@@ -54,3 +54,4 @@ skyblink_app/
 .claude/
 # keep the example env file
 !.env.example
+.next-demo/

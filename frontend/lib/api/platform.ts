@@ -1,5 +1,10 @@
+// NEXT_PUBLIC_API_URL = the Django backend. Without it, a production build (Vercel) uses its own demo API
+// (app/api/[...path]: real results for the five featured fields); local development keeps localhost:8000.
 export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") || "http://localhost:8000";
+  process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") ||
+  (process.env.NODE_ENV === "production" && typeof window !== "undefined"
+    ? window.location.origin
+    : "http://localhost:8000");
 
 export type HealthResponse = {
   status: string;
