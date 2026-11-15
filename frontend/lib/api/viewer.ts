@@ -96,9 +96,9 @@ export interface BlinkParams {
   name?: string;
 }
 
-import { API_BASE_URL } from './platform';
+import { API_BASE_URL, apiReady } from './platform';
 
-const API = API_BASE_URL;   // one base URL for the whole app (default http://localhost:8000)
+// one base URL for the whole app: API_BASE_URL is a live binding (it may switch to the demo API, see platform.ts)
 const USE_MOCKS = process.env.NEXT_PUBLIC_USE_MOCKS === '1';
 
 export class ApiError extends Error {
@@ -118,7 +118,7 @@ function qs(p: BlinkParams): string {
 
 /** Абсолютный URL кадра (бэкенд на другом домене, моки — из /public). */
 export function frameSrc(frame: BlinkFrame): string {
-  return frame.url.startsWith('/api/') ? `${API}${frame.url}` : frame.url;
+  return frame.url.startsWith('/api/') ? `${API_BASE_URL}${frame.url}` : frame.url;
 }
 
 async function mockBlink(p: BlinkParams): Promise<BlinkResponse> {
@@ -138,7 +138,7 @@ export interface Job<T> {
   error_code?: string;
 }
 
-export const API_BASE = API;
+export { API_BASE_URL as API_BASE } from './platform';
 
 /**
  * GET an endpoint that answers 200 with the result or 202 with a job; in the second case poll the job
@@ -172,7 +172,7 @@ export async function getWithJob<T>(
     if (Date.now() - lastAdvance > STALL_MS || Date.now() - started > HARD_MS) throw new ApiError('irsa_timeout');
     await new Promise((r) => setTimeout(r, 1500));
     if (signal?.aborted) throw new ApiError('aborted');
-    const r = await fetch(`${API}/api/blink/status/${job.job_id}`, { signal });
+    const r = await fetch(`${API_BASE_URL}/api/blink/status/${job.job_id}`, { signal });
     if (!r.ok) throw new ApiError('server_error', r.status);
     job = (await r.json()) as Job<T>;
     onProgress?.(job);
@@ -188,7 +188,8 @@ export async function fetchBlink(
   signal?: AbortSignal,
 ): Promise<BlinkResponse> {
   if (USE_MOCKS) return mockBlink(p);
-  return getWithJob<BlinkResponse>(`${API}/api/blink?${qs(p)}`, onProgress, signal);
+  await apiReady;
+  return getWithJob<BlinkResponse>(`${API_BASE_URL}/api/blink?${qs(p)}`, onProgress, signal);
 }
 
 /** Кадры одной последовательности (один детектор). Разные детекторы НИКОГДА не проигрываются вместе. */

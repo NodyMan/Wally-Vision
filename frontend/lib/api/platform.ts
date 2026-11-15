@@ -1,10 +1,26 @@
 // NEXT_PUBLIC_API_URL = the Django backend. Without it, a production build (Vercel) uses its own demo API
 // (app/api/[...path]: real results for the five featured fields); local development keeps localhost:8000.
-export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") ||
-  (process.env.NODE_ENV === "production" && typeof window !== "undefined"
-    ? window.location.origin
-    : "http://localhost:8000");
+const CONFIGURED_API = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "");
+const IN_BROWSER_PROD = process.env.NODE_ENV === "production" && typeof window !== "undefined";
+
+export let API_BASE_URL =
+  CONFIGURED_API || (IN_BROWSER_PROD ? window.location.origin : "http://localhost:8000");
+
+/**
+ * Resolves once the API base is final. In a production browser with a configured backend, the backend is
+ * asked for /api/health first; if it does not answer within 6 s (paused, asleep, gone), the site falls back
+ * to its own demo API. Every API call awaits this before building its URL.
+ */
+export const apiReady: Promise<void> =
+  CONFIGURED_API && IN_BROWSER_PROD
+    ? fetch(`${CONFIGURED_API}/api/health`, { cache: "no-store", signal: AbortSignal.timeout(6000) })
+        .then((r) => {
+          if (!r.ok) throw new Error(`backend ${r.status}`);
+        })
+        .catch(() => {
+          API_BASE_URL = window.location.origin;
+        })
+    : Promise.resolve();
 
 export type HealthResponse = {
   status: string;
@@ -57,6 +73,7 @@ export type FindingSubmitPayload = {
 const MY_FINDINGS_STORAGE_KEY = "skyblink_my_findings";
 
 export async function fetchHealth(): Promise<HealthResponse> {
+  await apiReady;
   const res = await fetch(`${API_BASE_URL}/api/health`, {
     cache: "no-store",
   });
@@ -67,6 +84,7 @@ export async function fetchHealth(): Promise<HealthResponse> {
 }
 
 export async function resolveTarget(query: string): Promise<ResolveResponse> {
+  await apiReady;
   const url = new URL(`${API_BASE_URL}/api/resolve`);
   url.searchParams.set("q", query);
   let res: Response;
@@ -83,6 +101,7 @@ export async function resolveTarget(query: string): Promise<ResolveResponse> {
 }
 
 export async function fetchPresets(): Promise<PresetItem[]> {
+  await apiReady;
   const res = await fetch(`${API_BASE_URL}/api/presets`, {
     next: { revalidate: 300 },
   });
@@ -93,6 +112,7 @@ export async function fetchPresets(): Promise<PresetItem[]> {
 }
 
 export async function fetchFindings(): Promise<FindingItem[]> {
+  await apiReady;
   const res = await fetch(`${API_BASE_URL}/api/findings`, {
     cache: "no-store",
   });
@@ -107,6 +127,7 @@ export async function submitFinding(
 ): Promise<FindingItem> {
   let res: Response;
   try {
+    await apiReady;
     res = await fetch(`${API_BASE_URL}/api/findings`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

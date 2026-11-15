@@ -2,6 +2,7 @@
 // Everything here is measured from real SPHEREx images and real catalogs; nothing is simulated.
 // Developed with SI assistance (Claude); reviewed by team #1.
 import { API_BASE, ApiError, getWithJob, type Detector, type Job } from './viewer';
+import { apiReady } from './platform';
 
 export interface CatalogSource {
   id: string;
@@ -72,7 +73,7 @@ export function fetchCatalog(ra: number, dec: number, fov: number): Promise<Cata
   const key = `${ra}|${dec}|${fov}`;
   let hit = catalogCache.get(key);
   if (!hit) {
-    hit = fetch(`${API_BASE}/api/catalog?ra=${ra}&dec=${dec}&fov=${fov}`).then(async (res) => {
+    hit = apiReady.then(() => fetch(`${API_BASE}/api/catalog?ra=${ra}&dec=${dec}&fov=${fov}`)).then(async (res) => {
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
         throw new ApiError((body as { error_code?: string }).error_code ?? 'server_error', res.status);
@@ -89,14 +90,16 @@ export function fetchCatalog(ra: number, dec: number, fov: number): Promise<Cata
 
 export function fetchSpectrum(p: SeriesRequest, onProgress?: (j: Job<SpectrumResponse>) => void,
                               signal?: AbortSignal): Promise<SpectrumResponse> {
-  return getWithJob<SpectrumResponse>(`${API_BASE}/api/spectrum?${query(p)}`, onProgress, signal);
+  return apiReady.then(() =>
+    getWithJob<SpectrumResponse>(`${API_BASE}/api/spectrum?${query(p)}`, onProgress, signal));
 }
 
 export function fetchLightCurve(p: SeriesRequest, detector: Detector,
                                 onProgress?: (j: Job<LightCurveResponse>) => void,
                                 signal?: AbortSignal): Promise<LightCurveResponse> {
-  return getWithJob<LightCurveResponse>(`${API_BASE}/api/lightcurve?${query(p, { detector: String(detector) })}`,
-                                        onProgress, signal);
+  return apiReady.then(() =>
+    getWithJob<LightCurveResponse>(`${API_BASE}/api/lightcurve?${query(p, { detector: String(detector) })}`,
+                                   onProgress, signal));
 }
 
 export function seriesCsv(points: SeriesPoint[]): string {
