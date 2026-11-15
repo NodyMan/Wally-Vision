@@ -1,0 +1,5 @@
+[home] NASA's SPHEREx telescope maps the whole sky in infrared every six months.
+[card] SkyBlink lines up its images of one patch of sky from different months, so anything that moves stands out.
+[blink] Here is the brown dwarf Epsilon Indi B.
+[diff] Difference mode measures its shift: six point oh, plus or minus one point one arcseconds. The catalogue predicts six point five.
+[diff2] A moving source with no Gaia match is a candidate to check, not a discovery.

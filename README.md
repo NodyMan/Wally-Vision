@@ -17,8 +17,10 @@ NASA's **SPHEREx** space telescope maps the entire sky roughly every 6 months ac
 - Available in **3 languages**: English (`en`), Russian (`ru`), and Uzbek Latin (`uz`), with mobile-first design, keyboard navigation, and `prefers-reduced-motion` support.
 - Flag interesting candidates with **"I found something!"**, share direct URLs, or embed the viewer anywhere with `<iframe>`.
 
-**Demo video (29 s):** [`video/SkyBlink_demo.mp4`](video/SkyBlink_demo.mp4) — screenshots of the running app on real
-SPHEREx data, no stock or generated footage (rebuild with `video/capture.py` + `video/make_video.py`).
+**Demo video (29 s):** [`video/SkyBlink_demo.mp4`](video/SkyBlink_demo.mp4) — a screen recording of the running
+app on real SPHEREx data with a spoken explanation. Rebuild: `node video/record.mjs` (Playwright, run from a folder with
+`playwright-core`), then `python video/build_video.py`; to use your own voice, record `video/narration.txt` and run
+`python video/build_video.py --voice my_voice.m4a`.
 Deployment steps: [`docs/DEPLOY_QUICK.md`](docs/DEPLOY_QUICK.md).
 
 ### Results on real data (15 Nov 2026)
@@ -136,7 +138,7 @@ Checks: `cd backend && python -m pytest -q` (81 tests); `cd frontend && npx tsc 
 ---
 
 ## AI / Super Intelligence (SI) Usage Disclosure
-In accordance with **NASA Space Apps Challenge 2026** guidelines, AI coding assistants were used to accelerate boilerplate scaffolding, coordinate-parsing unit tests, multilingual UI translation (`en`/`ru`/`uz`), and accessibility checks. All astronomical logic, API contracts, data validation, and final builds were reviewed and verified by the team.
+In accordance with **NASA Space Apps Challenge 2026** guidelines, AI coding assistants were used to accelerate boilerplate scaffolding, coordinate-parsing unit tests, multilingual UI translation (`en`/`ru`/`uz`), and accessibility checks. All astronomical logic, API contracts, data validation, and final builds were reviewed and verified by the team. The narration of the demo video is text-to-speech (edge-tts, voice en-US-AndrewNeural) unless re-recorded by the team; the picture is a real screen recording, with no generated imagery.
 
 ---
 
