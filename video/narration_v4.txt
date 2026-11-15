@@ -1,0 +1,35 @@
+SkyBlink demo — full narration v4 (for ElevenLabs, voice "Jamie", ≤ 30 s)
+Developed with SI assistance (Claude); reviewed by team #1.
+
+=== PASTE THIS INTO ELEVENLABS (66 words, about 27 s at Jamie's pace) ===
+
+NASA's Sphere-X maps the whole sky in infrared.
+SkyBlink lines up its images, taken months apart.
+Blink them, and whatever moves stands out.
+Difference mode measures it: Epsilon Indi B moved six arcseconds, just as the catalogue predicts.
+Slide through infrared bands, open a spectrum or a light curve in one click,
+and flag new candidates to check.
+In English, Uzbek and Russian.
+SkyBlink. See the sky move.
+
+(Write "Sphere-X", not "SPHEREx": the first recording read it as "SFE Rex".
+ Keep the full stops: each one is a cut point in the video.)
+
+=== SHOT LIST (what the picture shows under each line) ===
+1  NASA's Sphere-X maps the whole sky…        NASA SVS SPHEREx spacecraft animation, "Credit: NASA/JPL-Caltech"
+2  SkyBlink lines up its images…               home page, cursor clicks the Epsilon Indi B card
+3  Blink them, and whatever moves…             Blink view, zoomed 3x, flipping through the four visits
+4  Difference mode measures it…                click Difference; black/white pair; lower third
+                                               "measured shift 6.0 ± 1.1″ · catalogue predicts 6.5″"
+5  Slide through infrared bands,               "Compare all wavelengths": the band slider moves D1 -> D6
+   open a spectrum or a light curve…           Spectrum tab (real preview, CH4 marker), then Light curve tab
+6  and flag new candidates to check.           click "I found something!"
+7  In English, Uzbek and Russian.              jump cuts EN -> UZ -> RU (+ Simple mode click)
+8  SkyBlink. See the sky move.                 dark end card: frontend-three-xi-80.vercel.app, Space Apps 2026, credits
+
+=== WHY THESE WORDS ===
+- Epsilon Indi B is the field whose motion was measured (6.0 ± 1.1″ vs 6.5″). WISE 0855 is not used: no shift is
+  measurable for it in SPHEREx (peak 2–4x the noise, next to a background star).
+- "candidates to check", never "discoveries" (COMMON §13).
+- No Gaia/CatWISE line: the catalogue layer needs IRSA TAP, which timed out all of 15 Nov, so it cannot be shown.
+- Spectrum and light curve are labelled "preview" in the app (3x3-pixel photometry on single exposures).
