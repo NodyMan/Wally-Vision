@@ -150,6 +150,8 @@ def main() -> None:
     ap.add_argument("voice")
     ap.add_argument("--nasa", default=r"C:\skyblink_video\v3\nasa\spacecraft_4k.mp4")
     ap.add_argument("--out", default=str(HERE / "SkyBlink_explainer.mp4"))
+    ap.add_argument("--at", action="append", default=[], metavar="N=SECONDS",
+                    help="set paragraph N's start by hand when the transcription misses it, e.g. --at 11=76.9")
     args = ap.parse_args()
     work = Path(r"C:\skyblink_video\long\build")
     work.mkdir(parents=True, exist_ok=True)
@@ -157,6 +159,10 @@ def main() -> None:
     paras = paragraphs()
     assert len(paras) == len(SCENES), (len(paras), len(SCENES))
     starts, voice_end = paragraph_starts(Path(args.voice), paras)
+    for item in args.at:
+        n, sec = item.split("=")
+        starts[int(n) - 1] = float(sec)
+    assert all(a < b for a, b in zip(starts, starts[1:])), starts
     total = voice_end + 2.6
     bounds = [max(0.0, s - 0.15) if k else 0.0 for k, s in enumerate(starts)] + [total]
     for k, (a, b) in enumerate(zip(bounds, bounds[1:])):

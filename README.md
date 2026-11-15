@@ -23,6 +23,8 @@ NASA's **SPHEREx** space telescope maps the entire sky roughly every 6 months ac
 spacecraft animation (svs.gsfc.nasa.gov/14966, credit NASA/JPL-Caltech), then screen recordings of the running app on
 real SPHEREx data: Epsilon Indi B blink and difference (measured 6.0 ± 1.1″ shift), the wavelength slider, spectrum and
 light-curve previews, "I found something!", Uzbek and Russian. Script and shot list: [`video/narration_v4.txt`](video/narration_v4.txt).
+**Explainer (1:52):** [`video/SkyBlink_explainer.mp4`](video/SkyBlink_explainer.mp4) — every feature, one scene per paragraph of
+[`video/narration_long.txt`](video/narration_long.txt) (`python video/build_video_long.py <narration.mp3>`).
 Rebuild: `node video/record_v3.mjs` and `node video/record_v4.mjs` (Playwright, run from a folder with `playwright-core`),
 then `python video/build_video_v4.py <narration.mp3>`.
 Deployment steps: [`docs/DEPLOY_QUICK.md`](docs/DEPLOY_QUICK.md).
