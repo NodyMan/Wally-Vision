@@ -23,7 +23,7 @@
     "step2Title": "2. Blink across SPHEREx dates",
     "step2Desc": "Images from multiple observation dates are aligned to one grid and animated smoothly.",
     "step3Title": "3. Spot motion or flickering",
-    "step3Desc": "Turn on Difference mode or the catalog arrows to see nearby objects shift."
+    "step3Desc": "Turn on Difference mode to see nearby objects shift as black-and-white pairs."
   },
   "stats": {
     "targets": "Benchmark targets",

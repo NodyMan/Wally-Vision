@@ -30,13 +30,13 @@ function Tile({ icon, label, value, unit, sub, fill }: {
 }) {
   return (
     <div className="card flex flex-col gap-3 p-4">
-      <div className="flex items-start justify-between gap-2">
-        <span className="flex items-center gap-2 text-sm text-slate-300">
+      <div className="flex flex-wrap items-start justify-between gap-2">
+        <span className="flex min-w-0 items-center gap-2 text-sm text-slate-300">
           <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-sky-950 text-sky-600">{icon}</span>
           {label}
         </span>
-        <span className="text-right">
-          <span className="hud-value text-3xl font-light leading-none">{value}</span>
+        <span className="shrink-0 text-right">
+          <span className="hud-value text-2xl font-light leading-none sm:text-3xl">{value}</span>
           {unit && <span className="ml-0.5 text-sm text-slate-400">{unit}</span>}
         </span>
       </div>

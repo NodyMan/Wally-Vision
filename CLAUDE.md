@@ -48,7 +48,7 @@ Two teammate folders sit next to it. Read them, copy from them, never edit them:
 - Presets: `shared/presets.json` = #3's slugs and texts + #1's coordinates, mode and `default_detector`.
   `frontend/lib/mocks/presets.json` must be an exact copy. Slugs must equal `scripts/prefetch.py` PRESETS,
   `core/targets.py` PRESET_PM and the `viewer/static_cache/` folders.
-- Checks: `cd backend && python -m pytest -q` (69); `cd frontend && npm test` (9), `npx tsc --noEmit`, `npm run lint`;
+- Checks: `cd backend && python -m pytest -q` (81); `cd frontend && npm test` (9), `npx tsc --noEmit`, `npm run lint`;
   `node scripts/check_i18n.mjs` from the root (placeholders must be plain `{name}`, no ICU plurals).
 - Run: `.claude/launch.json` has `backend` (port 8000) and `frontend-api` (port 3000); `frontend-mocks` needs no backend.
 - `frontend/node_modules` is a real folder inside OneDrive (Turbopack rejects a link that leaves the project).
@@ -97,9 +97,11 @@ Two teammate folders sit next to it. Read them, copy from them, never edit them:
   galaxies + >100 M stars), a year of motion is "about one pixel" (Barnard 10.3″/yr = 1.7 px), no RGB composite
   (not built), Gaia/CatWISE arrows need IRSA TAP. #3's name is still "[name]".
 - Long explainer: `video/narration_long.txt` (15 paragraphs) + `video/build_video_long.py` (aligns scenes to any
-  reading by word timestamps) + `video/record_long.mjs` (takes H-M in C:\skyblink_video\longec).
+  reading by word timestamps) + `video/record_long.mjs` (takes H-M in C:\skyblink_video\long
+ec).
 - Sky map: the CDS Aladin script URL returned 404, so `AladinPanel.tsx` loads aladin-lite@3.8.2 from jsDelivr (ES
-  module). CDS HiPS tile servers (alasky, alaskybis) were also down on 15 Nov: the map frame loads, tiles may not.
+  module). CDS short HiPS IDs and alasky tiles answered 404 on 15 Nov, so the map uses IRSA's mirrors by full URL
+  (AllWISE RGB, 2MASS, DSS2). IRSA's SPHEREx DR1 HiPS cube exists but Aladin 3.8.2 asks it for a missing frame.
 
 ## Incident 14 Nov 22:47 (do not repeat)
 Four preset caches (wise-0855, epsilon-indi-b, rw-aurigae, r-draconis) appeared that were NOT made from IRSA data:

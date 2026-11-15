@@ -13,9 +13,9 @@
       "uz": "Barnard yulduzi"
     },
     "short": {
-      "en": "Fastest-moving star across Earth's sky (~10.3″/yr).",
-      "ru": "Самая быстро движущаяся звезда на небе (~10.3″/год).",
-      "uz": "Osmondagi eng tez harakatlanuvchi yulduz (~10.3″/yil)."
+      "en": "Fastest-moving star across Earth's sky (~10.4″/yr).",
+      "ru": "Самая быстро движущаяся звезда на небе (~10.4″/год).",
+      "uz": "Osmondagi eng tez harakatlanuvchi yulduz (~10.4″/yil)."
     },
     "what_you_see": {
       "en": "Watch the bright star near the center slowly drift upward compared to background stars. Because it is only 6 light-years away, its motion is one of the easiest to spot.",
@@ -42,9 +42,9 @@
       "uz": "Yorqin yulduz atrofidagi yaqin jigarrang mitti juftligi."
     },
     "what_you_see": {
-      "en": "This binary brown dwarf system sits only 12 light-years away and shares fast sky motion (~4.7″/yr). Try Diff mode to spot the shift as a bright-and-dark pair.",
-      "ru": "Эта пара коричневых карликов всего в 12 световых годах от нас и быстро смещается по небу (~4.7″/год). Включите режим Diff, чтобы увидеть сдвиг как пару «светлое + тёмное пятно».",
-      "uz": "Bu jigarrang mitti juftligi bizdan atigi 12 yorug'lik yili uzoqlikda va osmon bo'ylab tez siljiydi (~4.7″/yil). Siljishni yorug'-qora juftlik sifatida ko'rish uchun Diff rejimini yoqing."
+      "en": "This binary brown dwarf system sits only 12 light-years away and shares fast sky motion (~4.7″/yr). Try Difference mode to spot the shift as a bright-and-dark pair.",
+      "ru": "Эта пара коричневых карликов всего в 12 световых годах от нас и быстро смещается по небу (~4.7″/год). Включите режим «Разница», чтобы увидеть сдвиг как пару «светлое + тёмное пятно».",
+      "uz": "Bu jigarrang mitti juftligi bizdan atigi 12 yorug'lik yili uzoqlikda va osmon bo'ylab tez siljiydi (~4.7″/yil). Siljishni yorug'-qora juftlik sifatida ko'rish uchun «Farq» rejimini yoqing."
     }
   },
   {
@@ -61,14 +61,14 @@
       "uz": "WISE 0855−0714"
     },
     "short": {
-      "en": "The coldest known brown dwarf (~250 K), moving ~8.1″/yr.",
-      "ru": "Самый холодный известный коричневый карлик (~250 K), сдвиг ~8.1″/год.",
-      "uz": "Ma'lum bo'lgan eng sovuq jigarrang mitti (~250 K), siljishi ~8.1″/yil."
+      "en": "The coldest known brown dwarf (~250–285 K), moving ~8.1″/yr.",
+      "ru": "Самый холодный известный коричневый карлик (~250–285 K), сдвиг ~8.1″/год.",
+      "uz": "Ma'lum bo'lgan eng sovuq jigarrang mitti (~250–285 K), siljishi ~8.1″/yil."
     },
     "what_you_see": {
-      "en": "A very faint, cold dwarf moving about 8″ a year. It is not in Gaia (too cold for visible light): turn on the CatWISE layer to see its infrared catalog motion. Right now it passes close to a background star.",
-      "ru": "Очень тусклый холодный карлик, смещается примерно на 8″ в год. В Gaia его нет — он слишком холодный для видимого света: включите слой CatWISE, чтобы увидеть его движение по инфракрасному каталогу. Сейчас он проходит рядом с фоновой звездой.",
-      "uz": "Juda xira sovuq mitti, yiliga taxminan 8″ siljiydi. Gaia’da yo‘q — ko‘rinadigan nur uchun juda sovuq: infraqizil katalogdagi harakatini ko‘rish uchun CatWISE qatlamini yoqing. Hozir u fondagi yulduz yonidan o‘tmoqda."
+      "en": "A very faint, cold dwarf moving about 8″ a year. It is not in Gaia (too cold for visible light); its motion is known from WISE infrared catalogues. Right now it passes close to a background star.",
+      "ru": "Очень тусклый холодный карлик, смещается примерно на 8″ в год. В Gaia его нет — он слишком холодный для видимого света; его движение известно по инфракрасным каталогам WISE. Сейчас он проходит рядом с фоновой звездой.",
+      "uz": "Juda xira sovuq mitti, yiliga taxminan 8″ siljiydi. Gaia’da yo‘q — ko‘rinadigan nur uchun juda sovuq; uning harakati WISE infraqizil kataloglaridan ma’lum. Hozir u fondagi yulduz yonidan o‘tmoqda."
     }
   },
   {
@@ -114,9 +114,9 @@
       "uz": "Yorqinligi kuchli o'zgarib turadigan Mira turidagi pulsatsiyalanuvchi qizil gigant."
     },
     "what_you_see": {
-      "en": "A pulsating red giant near the ecliptic pole, so SPHEREx sees it almost continuously. It is far too bright for SPHEREx in this band (the detector saturates), so its pulsation cannot be measured here.",
-      "ru": "Пульсирующий красный гигант у полюса эклиптики, поэтому SPHEREx видит его почти непрерывно. Для SPHEREx в этом диапазоне он слишком яркий (детектор пересвечен), поэтому пульсацию здесь измерить нельзя.",
-      "uz": "Ekliptika qutbi yaqinidagi pulsatsiyalanuvchi qizil gigant, shuning uchun SPHEREx uni deyarli uzluksiz ko‘radi. Bu diapazonda SPHEREx uchun juda yorqin (detektor to‘yinadi), shuning uchun pulsatsiyani bu yerda o‘lchab bo‘lmaydi."
+      "en": "A pulsating red giant at high ecliptic latitude, so SPHEREx revisits it far more often than most of the sky. It is far too bright for SPHEREx in this band (the detector saturates), so its pulsation cannot be measured here.",
+      "ru": "Пульсирующий красный гигант на высокой эклиптической широте, поэтому SPHEREx наблюдает его гораздо чаще, чем большую часть неба. Для SPHEREx в этом диапазоне он слишком яркий (детектор пересвечен), поэтому пульсацию здесь измерить нельзя.",
+      "uz": "Yuqori ekliptik kenglikdagi pulsatsiyalanuvchi qizil gigant, shuning uchun SPHEREx uni osmonning ko‘p qismiga qaraganda ancha tez-tez kuzatadi. Bu diapazonda SPHEREx uchun juda yorqin (detektor to‘yinadi), shuning uchun pulsatsiyani bu yerda o‘lchab bo‘lmaydi."
     }
   }
 ]

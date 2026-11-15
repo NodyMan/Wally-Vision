@@ -1,7 +1,14 @@
 from django.contrib import admin
+from django.http import JsonResponse
 from django.urls import include, path
 
+def root(request):
+    """Plain landing answer so the bare API URL is not a 404."""
+    return JsonResponse({"service": "skyblink-api", "health": "/api/health", "site": "https://frontend-three-xi-80.vercel.app"})
+
+
 urlpatterns = [
+    path("", root),
     path("admin/", admin.site.urls),
     path("api/", include("platform_api.urls")),
     path("api/", include("findings.urls")),

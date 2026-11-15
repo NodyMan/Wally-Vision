@@ -70,7 +70,7 @@ function Status<T>({ run }: { run: Run<T> }) {
     );
   }
   if (run.state === 'error') {
-    return <p role="alert" className="text-sm text-red-200">{t.has(`errors.${run.code}`) ? t(`errors.${run.code}`) : t('errors.server_error')}</p>;
+    return <p role="alert" className="text-sm text-red-700">{t.has(`errors.${run.code}`) ? t(`errors.${run.code}`) : t('errors.server_error')}</p>;
   }
   return null;
 }
@@ -134,10 +134,10 @@ export function SpectrumPanel() {
                        marks={data.features.map((f) => ({ x: f.wavelength_um, label: t(`features.${f.key}.short`) }))} />
           <ul className="grid gap-x-4 gap-y-1 text-xs sm:grid-cols-2">
             {data.features.map((f) => (
-              <li key={f.key}><span className="text-amber-300">{t(`features.${f.key}.short`)} · {f.wavelength_um} µm</span> — {t(`features.${f.key}.text`)}</li>
+              <li key={f.key}><span className="text-amber-700">{t(`features.${f.key}.short`)} · {f.wavelength_um} µm</span> — {t(`features.${f.key}.text`)}</li>
             ))}
           </ul>
-          <p className="text-xs text-amber-200">{t('spectrum.preview', { count: points.length })}</p>
+          <p className="text-xs text-amber-700">{t('spectrum.preview', { count: points.length })}</p>
         </>
       )}
     </div>
@@ -180,7 +180,7 @@ export function LightCurvePanel() {
         <>
           <SeriesChart points={points} xLabel={t('lightcurve.x')} yLabel={t('yLabel')} formatX={dateOf}
                        ariaLabel={t('lightcurve.aria', { count: points.length })} />
-          <p className="text-xs text-amber-200">
+          <p className="text-xs text-amber-700">
             {span ? t('lightcurve.preview', { from: span[0].toFixed(2), to: span[1].toFixed(2) }) : t('lightcurve.previewNoWl')}
           </p>
           {data.points.some((p) => p.flagged) && <p className="text-xs opacity-80">{t('flagged')}</p>}

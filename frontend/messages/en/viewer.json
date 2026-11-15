@@ -137,8 +137,8 @@
     "exposures": "Exposures",
     "perVisit": "{value} per visit",
     "shift": "Measured shift",
-    "shiftSub": "± {err}″ · catalogue {expected}″",
-    "notMeasured": "only for objects expected to move",
+    "shiftSub": "± {err}″ · expected {expected}″",
+    "notMeasured": "no reliable measurement here",
     "wavelength": "Wavelength"
   },
   "rail": {

@@ -31,7 +31,7 @@
     "loading": "Yuklanmoqda…",
     "retry": "Qayta urinish",
     "apiOnline": "Server ishlayapti",
-    "apiWaking": "NASA ma'lumotlar xizmatiga ulanmoqda…",
+    "apiWaking": "SkyBlink serveri ishga tushmoqda…",
     "apiOffline": "Serverga ulanib bo'lmadi"
   },
   "notFound": {

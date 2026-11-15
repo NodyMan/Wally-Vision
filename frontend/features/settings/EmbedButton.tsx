@@ -91,7 +91,7 @@ export function EmbedButton({
       </button>
       {fallbackSnippet && (
         <div className="w-full max-w-xs rounded-lg border border-slate-700 bg-slate-950 p-2 text-xs text-slate-300">
-          <p className="mb-1 text-amber-300">{t("copyFailed")}</p>
+          <p className="mb-1 text-amber-700">{t("copyFailed")}</p>
           <input
             type="text"
             readOnly

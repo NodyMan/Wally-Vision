@@ -9,10 +9,14 @@ import { useViewer } from '@/lib/store';
 // The CDS address (aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js) answered 404 on 15 Nov 2026, so the
 // official npm build is used, pinned. It is an ES module (default export), loaded through a module script below.
 const ALADIN_JS = 'https://cdn.jsdelivr.net/npm/aladin-lite@3.8.2/dist/aladin.js';
+// CDS short IDs need the CDS MocServer and alasky tiles, which answered 404 on 15 Nov 2026; IRSA mirrors AllWISE, 2MASS
+// and DSS2, so full IRSA URLs are used. IRSA also hosts a SPHEREx DR1 all-sky HiPS cube (SPHEREx/spherex_allsky_cube),
+// but Aladin Lite 3.8.2 requests a frame that does not exist for it (blank map), so it is not offered yet.
+const IRSA_HIPS = 'https://irsa.ipac.caltech.edu/data/hips';
 const SURVEYS = [
-  { id: 'CDS/P/unWISE/color-W2-W1W2-W1', key: 'unwise' },
-  { id: 'CDS/P/2MASS/color', key: 'twomass' },
-  { id: 'CDS/P/DSS2/color', key: 'dss' },
+  { id: `${IRSA_HIPS}/CDS/AllWISE/RGB-W4-W2-W1`, key: 'allwise' },
+  { id: `${IRSA_HIPS}/CDS/2MASS/Color`, key: 'twomass' },
+  { id: `${IRSA_HIPS}/CDS/DSS2/color`, key: 'dss' },
 ] as const;
 
 type AladinApi = { init?: Promise<unknown>; aladin: (el: HTMLElement, opts: Record<string, unknown>) => unknown };
@@ -92,7 +96,7 @@ export function AladinPanel() {
           </button>
         ))}
       </div>
-      {failed ? <p role="alert" className="text-sm text-red-200">{t('failed')}</p>
+      {failed ? <p role="alert" className="text-sm text-red-700">{t('failed')}</p>
         : <div ref={box} className="h-72 w-full overflow-hidden rounded-xl bg-black" />}
     </div>
   );

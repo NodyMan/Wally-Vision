@@ -111,6 +111,7 @@ export default async function AboutPage({
             </a>
           </li>
         </ul>
+        <p className="mt-3 text-xs text-slate-400">{t("gaiaCredit")}</p>
       </section>
     </div>
   );

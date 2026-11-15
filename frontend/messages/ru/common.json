@@ -31,7 +31,7 @@
     "loading": "Загрузка…",
     "retry": "Повторить",
     "apiOnline": "Сервер онлайн",
-    "apiWaking": "Подключаемся к архиву NASA…",
+    "apiWaking": "Запускаем сервер SkyBlink…",
     "apiOffline": "Сервер недоступен"
   },
   "notFound": {

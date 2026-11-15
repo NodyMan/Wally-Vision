@@ -57,10 +57,10 @@
     "intro": "Shu joyni boshqa osmon sharhlarida ko‘ring.",
     "load": "Osmon xaritasini yuklash",
     "survey": "Sharh",
-    "unwise": "unWISE (infraqizil)",
+    "allwise": "AllWISE (o‘rta infraqizil)",
     "twomass": "2MASS (yaqin infraqizil)",
     "dss": "DSS2 (ko‘rinadigan nur)",
-    "failed": "Osmon xaritasini yuklab bo‘lmadi.",
+    "failed": "Osmon xaritasini yuklab bo‘lmadi. Plitkalar serveri band bo‘lishi mumkin; boshqa sharhni tanlang.",
     "needTarget": "Avval obyektni oching."
   },
   "flagged": "Xira nuqtalarda sifat bayroqlari bor (masalan, yulduz haddan tashqari yorqin)."

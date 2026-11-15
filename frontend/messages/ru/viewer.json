@@ -137,8 +137,8 @@
     "exposures": "Снимки",
     "perVisit": "{value} на визит",
     "shift": "Измеренный сдвиг",
-    "shiftSub": "± {err}″ · каталог {expected}″",
-    "notMeasured": "только для движущихся объектов",
+    "shiftSub": "± {err}″ · ожидалось {expected}″",
+    "notMeasured": "здесь надёжно не измерен",
     "wavelength": "Длина волны"
   },
   "rail": {

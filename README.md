@@ -13,7 +13,7 @@ NASA's **SPHEREx** space telescope maps the entire sky roughly every 6 months ac
 **SkyBlink** makes SPHEREx exploration effortless for everyone:
 - Enter any astronomical name (`WISE 0855`, `Barnard's Star`) or sky coordinates (`08h55m10.8s -07d14m42s`, `133.795 -7.245`, `08:55:10.8 -07:14:42`), or pick one of **5 featured benchmark targets**.
 - Watch multi-epoch SPHEREx cutouts aligned to a common sky grid and animated smoothly (`frames`, `diff`, `sum` modes).
-- Explore in **Simple Mode** (for beginners) or **Expert Mode** (Gaia DR3 proper-motion vectors, CatWISE2020 overlays, click-to-spectrum and light-curve previews measured on real exposures).
+- Explore in **Simple Mode** (for beginners) or **Expert Mode** (Gaia DR3 proper-motion vectors and CatWISE2020 overlays when the IRSA catalogue service answers, click-to-spectrum and light-curve previews measured on real exposures).
 - Available in **3 languages**: English (`en`), Russian (`ru`), and Uzbek Latin (`uz`), with mobile-first design, keyboard navigation, and `prefers-reduced-motion` support.
 - Flag interesting candidates with **"I found something!"**, share direct URLs, or embed the viewer anywhere with `<iframe>`.
 
@@ -33,7 +33,7 @@ Deployment steps: [`docs/DEPLOY_QUICK.md`](docs/DEPLOY_QUICK.md).
 | Target | Detector, mode | What SkyBlink measures | Catalogue |
 |---|---|---|---|
 | Epsilon Indi Ba/Bb | D6, difference | shift **6.0 ± 1.1″** at PA 130° (2025-04-29 → 2026-09-22) | 6.5″ at PA 122° |
-| Barnard's Star | D2, difference (saturated core masked) | shift **11.9 ± 1.3″** at PA 343° | 10.4″ at PA 356° |
+| Barnard's Star | D2, difference (saturated core masked) | shift **11.9 ± 1.3″** at PA 343° (about 2σ from the catalogue; with a masked saturated core this is indicative only) | 10.4″ at PA 356° |
 | WISE 0855−0714 | D6, difference | no shift reported: peak only 2–4× the noise, next to a G = 16.3 background star | 8.1″/yr |
 | RW Aurigae, R Draconis | D2, frames | too bright for SPHEREx in this band: light curve and spectrum answer `target_saturated` | — |
 
@@ -69,6 +69,8 @@ both agree with the catalogue.
 | Object names | CDS **Sesame** via `astropy.coordinates.SkyCoord.from_name` | search box |
 | Sky context | **Aladin Lite v3** (CDS) with unWISE, 2MASS, DSS2 | "Sky map" tab |
 | Software | **Astropy** (WCS, FITS, ZScale/Asinh), **reproject** (`reproject_interp`), NumPy, SciPy | processing pipeline |
+
+Gaia acknowledgement: This work has made use of data from the European Space Agency (ESA) mission Gaia (https://www.cosmos.esa.int/gaia), processed by the Gaia Data Processing and Analysis Consortium (DPAC).
 
 What the pipeline does to be fair to the data:
 - **Linear variable filters.** Every SPHEREx exposure sees a given star at a different wavelength. SkyBlink reads
@@ -144,7 +146,7 @@ Checks: `cd backend && python -m pytest -q` (81 tests); `cd frontend && npx tsc 
 ---
 
 ## AI / Super Intelligence (SI) Usage Disclosure
-In accordance with **NASA Space Apps Challenge 2026** guidelines, AI coding assistants were used to accelerate boilerplate scaffolding, coordinate-parsing unit tests, multilingual UI translation (`en`/`ru`/`uz`), and accessibility checks. All astronomical logic, API contracts, data validation, and final builds were reviewed and verified by the team. The narration of the demo video is an AI voice (ElevenLabs, voice "Jamie") reading the team's script; the picture is NASA's own SPHEREx animation plus a real screen recording of the app, with no generated imagery; the background music and sound effects are synthesized in `video/build_video_v4.py`.
+In accordance with **NASA Space Apps Challenge 2026** guidelines, AI coding assistants (including Claude by Anthropic) were used to accelerate boilerplate scaffolding, coordinate-parsing unit tests, multilingual UI translation (`en`/`ru`/`uz`), and accessibility checks. All astronomical logic, API contracts, data validation, and final builds were reviewed and verified by the team. The narration of the demo video is an AI voice (ElevenLabs, voice "Jamie") reading the team's script (faster-whisper transcribed it only to time the cuts); the picture is NASA's own SPHEREx animation plus a real screen recording of the app, with no generated imagery; the background music and sound effects are synthesized in `video/build_video_v4.py`.
 
 ---
 

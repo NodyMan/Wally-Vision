@@ -57,10 +57,10 @@
     "intro": "See the same place in other sky surveys.",
     "load": "Load the sky map",
     "survey": "Survey",
-    "unwise": "unWISE (infrared)",
+    "allwise": "AllWISE (mid-infrared)",
     "twomass": "2MASS (near-infrared)",
     "dss": "DSS2 (visible light)",
-    "failed": "The sky map could not be loaded.",
+    "failed": "The sky map could not be loaded. The tile servers may be busy; try another survey.",
     "needTarget": "Open an object first."
   },
   "flagged": "Faint points have quality flags set (for example a saturated star)."

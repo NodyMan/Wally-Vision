@@ -137,8 +137,8 @@
     "exposures": "Suratlar",
     "perVisit": "har tashrifga {value}",
     "shift": "O‘lchangan siljish",
-    "shiftSub": "± {err}″ · katalog {expected}″",
-    "notMeasured": "faqat harakatlanuvchi obyektlar uchun",
+    "shiftSub": "± {err}″ · kutilgan {expected}″",
+    "notMeasured": "bu yerda ishonchli o‘lchanmagan",
     "wavelength": "To‘lqin uzunligi"
   },
   "rail": {

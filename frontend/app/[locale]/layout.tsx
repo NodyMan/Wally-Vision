@@ -14,7 +14,7 @@ const readout = JetBrains_Mono({ subsets: ["latin", "latin-ext", "cyrillic"], va
 export const metadata: Metadata = {
   title: "SkyBlink — SPHEREx Blink & Motion Explorer",
   description:
-    "Explore NASA SPHEREx infrared sky epochs as blink animations to discover brown dwarfs, moving objects, and variable stars.",
+    "Explore NASA SPHEREx infrared sky epochs as blink animations and spot moving objects, brown dwarfs and variable stars.",
 };
 
 export function generateStaticParams() {

@@ -43,7 +43,7 @@ export function ViewerNotes() {
       )}
       {blink.mode === 'diff' && <p className="opacity-80">{t('mode.diffLegend')}</p>}
       {codes.map((code) => (
-        <p key={code} className="text-amber-200">
+        <p key={code} className="text-amber-700">
           {t.has(`warnings.${code}`) ? t(`warnings.${code}`) : code}
         </p>
       ))}
