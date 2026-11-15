@@ -95,7 +95,7 @@ Two teammate folders sit next to it. Read them, copy from them, never edit them:
 - Pitch deck (Slides artifact, private until shared): https://claude.ai/artifact/AHMUxJ7Dq2t8KUWKEECcWB — 13 slides,
   speaker notes = the team's speeches, corrected: SPHEREx records "more than half a billion" objects (≈450 M
   galaxies + >100 M stars), a year of motion is "about one pixel" (Barnard 10.3″/yr = 1.7 px), no RGB composite
-  (not built), Gaia/CatWISE arrows need IRSA TAP. #3's name is still "[name]".
+  (not built), Gaia/CatWISE arrows need IRSA TAP. Team: Intizor (opening and host), Makhmud (#1 Core Viewer), Khayrulloh (#2 Science), Nizomiddin (#3 Platform).
 - Long explainer: `video/narration_long.txt` (15 paragraphs) + `video/build_video_long.py` (aligns scenes to any
   reading by word timestamps) + `video/record_long.mjs` (takes H-M in C:\skyblink_video\long
 ec).
