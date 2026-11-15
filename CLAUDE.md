@@ -80,9 +80,10 @@ Two teammate folders sit next to it. Read them, copy from them, never edit them:
   is cached as `{"error_code": "target_saturated"}`.
 - Blink and Difference stack different exposures: ε Ind B is 6.5 ± 0.7″ in Blink and 6.0 ± 1.1″ in Difference.
   Quote the Difference value (6.0 ± 1.1″ vs catalogue 6.5″) in the pitch.
-- Demo video: `video/SkyBlink_demo.mp4` (29.3 s): NASA SVS SPHEREx animation (credit NASA/JPL-Caltech), then
-  a Playwright screen recording of the app (`video/record_v3.mjs`), cut to the team's ElevenLabs narration by
-  `video/build_video_v3.py` (synthesized music/SFX). The narration's WISE 0855 sentence is cut on purpose.
+- Demo video: `video/SkyBlink_demo.mp4` (29.9 s): NASA SVS SPHEREx animation (credit NASA/JPL-Caltech), then
+  Playwright recordings of the app (`video/record_v3.mjs` takes A-C, `video/record_v4.mjs` takes D-G) timed to the
+  team's ElevenLabs reading of `video/narration_v4.txt` by `video/build_video_v4.py` (synthesized music/SFX).
+  Never narrate a WISE 0855 shift or Gaia/CatWISE overlays (no data while IRSA TAP is down).
 - Live site: https://frontend-three-xi-80.vercel.app. Without a reachable backend it uses its own demo API
   (`frontend/app/api/[...path]`, data from `backend/scripts/export_demo_api.py`); `lib/api/platform.ts` probes
   `NEXT_PUBLIC_API_URL` for 6 s and falls back. The Vercel connector in this session is a different account.

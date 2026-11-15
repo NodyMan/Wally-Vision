@@ -1,14 +1,10 @@
 """
-Builds the SkyBlink demo video (≤ 30 s, 1080p30, H.264 + AAC):
-  0–4 s   NASA SVS SPHEREx spacecraft animation (svs.gsfc.nasa.gov/14966, credit NASA/JPL-Caltech)
-  4–24 s  screen recording of the real app (video/record_v3.mjs): home -> Epsilon Indi B blink -> difference,
-          then UZ and RU views with Simple mode
-  24–29 s end card with the live link
-Voice: the team's ElevenLabs narration, cut to the sentences that are true for our data and fit 30 s
-(the WISE 0855 "jumps off the screen" claim is left out: no shift is measurable for it in SPHEREx).
-Music and sound effects are synthesized here (no third-party audio).
+Builds the SkyBlink demo video v4 (29.9 s, 1080p30, H.264 + AAC) from the team's full ElevenLabs narration
+(video/narration_v4.txt) and real recordings of the app (video/record_v3.mjs takes A-C, video/record_v4.mjs takes D-G).
+Every shot starts on the sentence it illustrates; anchor times come from a word-level transcription of the voice
+(faster-whisper, 15 Nov). Music and sound effects are synthesized here (no third-party audio).
 
-    python video/build_video_v3.py VOICE.mp3 [--nasa spacecraft_4k.mp4] [--rec C:\\skyblink_video\\v3\\rec]
+    python video/build_video_v4.py VOICE.mp3 [--nasa spacecraft_4k.mp4]
 
 Developed with SI assistance (Claude); reviewed by team #1.
 """
@@ -18,6 +14,7 @@ import argparse
 import json
 import subprocess
 from pathlib import Path
+from types import SimpleNamespace
 
 import imageio_ffmpeg
 import numpy as np
@@ -26,34 +23,35 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 W, H, FPS, SR = 1920, 1080, 30, 44100
 FONTS = Path(r"C:\Windows\Fonts")
-LIVE_URL = "frontend-three-xi-80.vercel.app"
+REC = Path(r"C:\skyblink_video\v3")
 
-# voice: (source start, source end, output start) in seconds; cut points sit in pauses or word gaps
-VOICE = [
-    (0.00, 8.00, 0.00),     # NASA's SPHEREx telescope maps the entire sky in infrared, but raw space data is locked behind complex tools.
-    (8.56, 9.96, 8.10),     # Meet SkyBlink.
-    (12.93, 18.16, 9.60),   # In seconds, SkyBlink aligns real NASA epochs into an interactive flipbook.
-    (18.16, 20.46, 14.83),  # Switch to difference mode and moving objects
-    (24.50, 26.14, 17.15),  #   jump right off the screen.
-    (37.40, 42.45, 18.95),  # Built for everyone in English, Uzbek and Russian, with a simple mode for beginners
-    (45.14, 49.95, 24.15),  # SkyBlink. Turning NASA's infrared archive into discovery for everyone.
-]
-TOTAL = 29.3
+# sentence starts in the voice (s): Sphere-X 0.00 | SkyBlink lines up 4.26 | Blink them 7.82 | Difference 10.94 |
+# Epsilon 12.67 | Slide 17.36 | spectrum 19.45 | light curve 20.45 | and flag 21.85 | In English 24.19 |
+# Uzbek 24.90 | Russian 25.55 | SkyBlink, see the sky move 26.51 (voice ends 28.6)
+CFG = SimpleNamespace(TOTAL=29.9, WHOOSH_AT=[4.15, 26.40], LIVE_URL="frontend-three-xi-80.vercel.app")
 
-# picture: (output start, output end, source, source time = output time + offset)
+# (out start, out end, take, source start, source end): source time runs linearly over the shot
 SHOTS = [
-    (0.00, 4.00, "nasa", 0.0),
-    (4.00, 9.60, "A", -1.60),    # home; hover on "Meet SkyBlink", click the Epsilon Indi card
-    (9.60, 14.97, "A", 3.30),    # zoomed blink ("aligns real NASA epochs into an interactive flipbook")
-    (14.97, 15.71, "A", 4.14),   # Difference: the click (19.69 in take A) lands on the word "difference"
-    (15.71, 21.21, "A", 4.38),   # skip the 0.19 s loading flash (19.90–20.09 in take A)
-    (21.21, 21.87, "B", -20.46), # Uzbek, on "Uzbek"
-    (21.87, 24.15, "C", -19.81), # Russian + Simple mode click on "simple mode"
-    (24.15, TOTAL, "end", 0.0),
+    (0.00, 4.26, "nasa", 0.0, 4.26),
+    (4.26, 7.82, "A", 5.05, 8.61),     # home; the card click (8.24) lands at 7.45
+    (7.82, 10.94, "A", 13.20, 16.32),  # zoomed blink
+    (10.94, 11.55, "A", 19.51, 20.12), # cursor to Difference, click (19.92) at 11.35
+    (11.55, 17.36, "A", 20.27, 26.08), # loaded difference (the 20.12-20.26 loading flash is skipped)
+    (17.36, 19.45, "D", 4.90, 10.50),  # band slider D1 -> D6, 2.7x speed
+    (19.45, 20.45, "E", 5.10, 7.10),   # Build spectrum -> real spectrum with CH4 markers
+    (20.45, 21.85, "F", 4.75, 5.95),   # Measure brightness -> light curve
+    (21.85, 24.19, "G", 2.71, 5.05),   # "I found something!" (3.16) at 22.30 -> report dialog
+    (24.19, 24.90, "A", 24.50, 25.21), # English
+    (24.90, 25.55, "B", 0.74, 1.39),   # Uzbek
+    (25.55, 26.51, "C", 2.45, 3.41),   # Russian, Simple mode click (3.00) at 26.10
+    (26.51, 29.90, "end", 0.0, 3.39),
 ]
-LOWER_THIRD = (16.2, 21.1, "Epsilon Indi B  ·  measured shift 6.0 ± 1.1″  ·  catalogue predicts 6.5″")
+LOWER_THIRD = (12.67, 17.20, "Epsilon Indi B  ·  measured shift 6.0 ± 1.1″  ·  catalogue predicts 6.5″")
 NASA_CREDIT = "Credit: NASA/JPL-Caltech"
-WHOOSH_AT = [3.80, 23.90]
+# canvas area per take for spotting the black "searching the archive" frames shown while a band or mode loads
+CANVAS = {"A": (420, 320, 1260, 1000), "D": (380, 60, 1000, 640)}
+TAKE_DIRS = {"A": REC / "rec" / "A", "B": REC / "rec" / "B", "C": REC / "rec" / "C",
+             "D": REC / "rec4" / "D", "E": REC / "rec4" / "E", "F": REC / "rec4" / "F", "G": REC / "rec4" / "G"}
 
 
 def font(name: str, size: int) -> ImageFont.FreeTypeFont:
@@ -67,7 +65,7 @@ def decode_audio(path: Path) -> np.ndarray:
 
 
 def build_voice(src: np.ndarray) -> np.ndarray:
-    out = np.zeros(int(TOTAL * SR) + SR)
+    out = np.zeros(int(CFG.TOTAL * SR) + SR)
     fade = int(0.025 * SR)
     for a, b, o in VOICE:
         seg = src[int(a * SR):int(b * SR)].copy()
@@ -76,7 +74,7 @@ def build_voice(src: np.ndarray) -> np.ndarray:
         seg[-fade:] *= ramp[::-1]
         i = int(o * SR)
         out[i:i + len(seg)] += seg
-    return out[:int(TOTAL * SR)] / (np.abs(out).max() + 1e-9) * 0.84
+    return out[:int(CFG.TOTAL * SR)] / (np.abs(out).max() + 1e-9) * 0.84
 
 
 def build_music(n: int, voice: np.ndarray) -> np.ndarray:
@@ -85,7 +83,7 @@ def build_music(n: int, voice: np.ndarray) -> np.ndarray:
               [130.81, 196.0, 261.63, 329.63, 392.0], [98.0, 146.83, 196.0, 246.94, 293.66]]
     bar = 3.75
     music = np.zeros(n)
-    for k in range(int(TOTAL / bar) + 2):
+    for k in range(int(CFG.TOTAL / bar) + 2):
         notes = chords[k % 4]
         s0 = k * bar
         env = np.clip((t - s0) / 0.9, 0, 1) * np.clip((s0 + bar + 0.7 - t) / 0.7, 0, 1)
@@ -111,14 +109,14 @@ def build_music(n: int, voice: np.ndarray) -> np.ndarray:
     win = int(0.12 * SR)
     venv = np.convolve(np.abs(voice), np.ones(win) / win, mode="same")
     duck = 1 - 0.45 * np.clip(venv / (venv.max() * 0.25 + 1e-9), 0, 1)
-    fade = np.clip(t / 1.2, 0, 1) * np.clip((TOTAL - t) / 1.8, 0, 1)
+    fade = np.clip(t / 1.2, 0, 1) * np.clip((CFG.TOTAL - t) / 1.8, 0, 1)
     return music * duck * fade
 
 
 def build_sfx(n: int, clicks: list[float]) -> np.ndarray:
     rng = np.random.default_rng(7)
     sfx = np.zeros(n)
-    for at in WHOOSH_AT:
+    for at in CFG.WHOOSH_AT:
         m = int(0.7 * SR)
         noise = rng.standard_normal(m)
         tt = np.arange(m) / m
@@ -207,7 +205,7 @@ def end_card(t: float) -> Image.Image:
         d.text((W / 2, y), s, font=f, fill=tuple(int(12 + (cc - 12) * a) for cc in c), anchor="mm")
 
     txt(400, "SkyBlink", font("segoeuil.ttf", 170), (240, 244, 238))
-    txt(540, LIVE_URL, font("seguisb.ttf", 52), (124, 198, 107))
+    txt(540, CFG.LIVE_URL, font("seguisb.ttf", 52), (124, 198, 107))
     txt(625, "NASA Space Apps Challenge 2026  ·  Planet X and SPHEREx", font("segoeui.ttf", 36), (180, 188, 176))
     txt(960, "SPHEREx data: NASA/IPAC IRSA  ·  Spacecraft animation: NASA/JPL-Caltech  ·  Not an official NASA product",
         font("segoeui.ttf", 24), (120, 128, 116))
@@ -222,27 +220,47 @@ def nasa_frames(clip: Path, start: float, dur: float, folder: Path) -> list[Path
     return sorted(folder.glob("*.png"))
 
 
+
+def drop_loading_frames(take: "Take", crop) -> None:
+    keep = []
+    for f in take.frames:
+        a = np.asarray(Image.open(take.folder / "frames" / f["name"]).convert("L").crop(crop))
+        if np.mean(a < 10) < 0.85:
+            keep.append(f)
+    take.frames = keep
+    take.times = np.array([f["t"] for f in keep])
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("voice")
     ap.add_argument("--nasa", default=r"C:\skyblink_video\v3\nasa\spacecraft_4k.mp4")
     ap.add_argument("--nasa-start", type=float, default=8.5)
-    ap.add_argument("--rec", default=r"C:\skyblink_video\v3\rec")
     ap.add_argument("--out", default=str(Path(__file__).resolve().parent / "SkyBlink_demo.mp4"))
     args = ap.parse_args()
-    work = Path(args.rec).parent
+    work = Path(r"C:\skyblink_video\v4")
+    work.mkdir(parents=True, exist_ok=True)
 
-    takes = {k: Take(Path(args.rec) / k) for k in "ABC"}
-    nasa = nasa_frames(Path(args.nasa), args.nasa_start, 4.0, work / "nasa_frames")
+    takes = {k: Take(d) for k, d in TAKE_DIRS.items()}
+    for k, crop in CANVAS.items():
+        drop_loading_frames(takes[k], crop)
+    nasa = nasa_frames(Path(args.nasa), args.nasa_start, 4.4, work / "nasa_frames")
 
-    # clicks inside the used parts of each take, in output time
+    def src_time(shot, t):
+        o0, o1, _, s0, s1 = shot
+        return s0 + (t - o0) * (s1 - s0) / (o1 - o0)
+
     clicks = []
-    for o0, o1, src, off in SHOTS:
-        if src in takes:
-            clicks += [c - off for c in takes[src].clicks if o0 <= c - off < o1]
+    for shot in SHOTS:
+        o0, o1, k, s0, s1 = shot
+        if k in takes:
+            clicks += [o0 + (c - s0) * (o1 - o0) / (s1 - s0) for c in takes[k].clicks if s0 <= c < s1]
     clicks.sort()
 
-    voice = build_voice(decode_audio(Path(args.voice)))
+    raw = decode_audio(Path(args.voice))
+    voice = np.zeros(int(CFG.TOTAL * SR))
+    voice[:min(len(raw), len(voice))] = raw[:len(voice)]
+    voice = voice / (np.abs(voice).max() + 1e-9) * 0.84
     n = len(voice)
     mix = voice + build_music(n, voice) + build_sfx(n, clicks)
     mix /= max(1.0, np.abs(mix).max() / 0.97)
@@ -257,21 +275,22 @@ def main() -> None:
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     credit_font = font("seguisb.ttf", 26)
     prev_last = None
-    for k in range(int(TOTAL * FPS)):
-        t = k / FPS
-        o0, o1, src, off = next(s for s in SHOTS if s[0] <= t < s[1] or s is SHOTS[-1])
-        if src == "nasa":
-            im = Image.open(nasa[min(len(nasa) - 1, k)]).convert("RGB")
+    for i in range(int(CFG.TOTAL * FPS)):
+        t = i / FPS
+        shot = next((s for s in SHOTS if s[0] <= t < s[1]), SHOTS[-1])
+        o0, _, k, _, _ = shot
+        if k == "nasa":
+            im = Image.open(nasa[min(len(nasa) - 1, i)]).convert("RGB")
             d = ImageDraw.Draw(im)
             d.text((W - 38, H - 34), NASA_CREDIT, font=credit_font, fill=(0, 0, 0), anchor="rs")
             d.text((W - 40, H - 36), NASA_CREDIT, font=credit_font, fill=(235, 238, 232), anchor="rs")
-        elif src == "end":
+        elif k == "end":
             im = end_card(t - o0)
             if prev_last is not None and t - o0 < 0.5:
                 im = Image.blend(prev_last, im, (t - o0) / 0.5)
         else:
-            tk = takes[src]
-            st = t + off
+            tk = takes[k]
+            st = src_time(shot, t)
             im = tk.frame(st)
             near = [c for c in tk.clicks if 0 <= st - c < 0.35]
             draw_cursor(im, *tk.cursor(st), (st - near[-1]) if near else None)
@@ -282,7 +301,7 @@ def main() -> None:
         proc.stdin.write(np.asarray(im, dtype=np.uint8).tobytes())
     proc.stdin.close()
     proc.wait()
-    print("written", args.out, f"{TOTAL:.1f} s; clicks at", [round(c, 2) for c in clicks])
+    print("written", args.out, f"{CFG.TOTAL:.1f} s; clicks at", [round(c, 2) for c in clicks])
 
 
 if __name__ == "__main__":

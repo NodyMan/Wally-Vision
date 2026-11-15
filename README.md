@@ -19,11 +19,12 @@ NASA's **SPHEREx** space telescope maps the entire sky roughly every 6 months ac
 
 **Live demo:** https://frontend-three-xi-80.vercel.app (the five featured fields on real data; see `docs/DEPLOY_QUICK.md` §1c).
 
-**Demo video (29 s):** [`video/SkyBlink_demo.mp4`](video/SkyBlink_demo.mp4) — opens with the NASA SVS SPHEREx spacecraft
-animation (svs.gsfc.nasa.gov/14966, credit NASA/JPL-Caltech), then a screen recording of the running app on real
-SPHEREx data (Epsilon Indi B: blink, then difference with the measured 6.0 ± 1.1″ shift). Rebuild: `node video/record_v3.mjs`
-(Playwright, run from a folder with `playwright-core`), then `python video/build_video_v3.py <narration.mp3>`.
-The spoken text is in [`video/narration.txt`](video/narration.txt).
+**Demo video (29.9 s):** [`video/SkyBlink_demo.mp4`](video/SkyBlink_demo.mp4) — opens with the NASA SVS SPHEREx
+spacecraft animation (svs.gsfc.nasa.gov/14966, credit NASA/JPL-Caltech), then screen recordings of the running app on
+real SPHEREx data: Epsilon Indi B blink and difference (measured 6.0 ± 1.1″ shift), the wavelength slider, spectrum and
+light-curve previews, "I found something!", Uzbek and Russian. Script and shot list: [`video/narration_v4.txt`](video/narration_v4.txt).
+Rebuild: `node video/record_v3.mjs` and `node video/record_v4.mjs` (Playwright, run from a folder with `playwright-core`),
+then `python video/build_video_v4.py <narration.mp3>`.
 Deployment steps: [`docs/DEPLOY_QUICK.md`](docs/DEPLOY_QUICK.md).
 
 ### Results on real data (15 Nov 2026)
@@ -141,7 +142,7 @@ Checks: `cd backend && python -m pytest -q` (81 tests); `cd frontend && npx tsc 
 ---
 
 ## AI / Super Intelligence (SI) Usage Disclosure
-In accordance with **NASA Space Apps Challenge 2026** guidelines, AI coding assistants were used to accelerate boilerplate scaffolding, coordinate-parsing unit tests, multilingual UI translation (`en`/`ru`/`uz`), and accessibility checks. All astronomical logic, API contracts, data validation, and final builds were reviewed and verified by the team. The narration of the demo video is an AI voice (ElevenLabs, voice "Jamie") reading the team's script; the picture is NASA's own SPHEREx animation plus a real screen recording of the app, with no generated imagery; the background music and sound effects are synthesized in `video/build_video_v3.py`.
+In accordance with **NASA Space Apps Challenge 2026** guidelines, AI coding assistants were used to accelerate boilerplate scaffolding, coordinate-parsing unit tests, multilingual UI translation (`en`/`ru`/`uz`), and accessibility checks. All astronomical logic, API contracts, data validation, and final builds were reviewed and verified by the team. The narration of the demo video is an AI voice (ElevenLabs, voice "Jamie") reading the team's script; the picture is NASA's own SPHEREx animation plus a real screen recording of the app, with no generated imagery; the background music and sound effects are synthesized in `video/build_video_v4.py`.
 
 ---
 
