@@ -7,15 +7,15 @@
   "steps": {
     "1": {
       "title": "Haqiqiy NASA SPHEREx tasvirlari",
-      "body": "Har bir kadr bir sanadagi infraqizil suratlarni birlashtiradi va osmon koordinatalariga aniq tekislangan."
+      "body": "Har bir kadr — bitta tashrifdagi SPHEREx suratlari yig‘indisi, bir xil osmon to‘rida moslangan. Tashriflar orasida oylar o‘tadi."
     },
     "2": {
-      "title": "Blink uchun Play tugmasini bosing",
-      "body": "Sanalar orasida o'tish uchun tugmalar yoki klaviatura strelkalaridan foydalaning. Uzoq yulduzlar joyida turadi, yaqin obyektlar siljiydi."
+      "title": "Suratlarni miltillatish uchun ▶ ni bosing",
+      "body": "Tashriflar orasida ▶, ⏮ ⏭ tugmalari yoki surgich bilan o‘ting. Uzoq yulduzlar joyida turadi, yaqin obyektlar siljiydi."
     },
     "3": {
-      "title": "Biror narsa sakrayaptimi? Diff ni yoqing",
-      "body": "Diff rejimi o'rtacha osmon fonini ayirib tashlaydi. Harakatlanuvchi obyekt yorug' va qora juftlik sifatida ko'rinadi."
+      "title": "Biror narsa sakrayaptimi? «Farq» ni yoqing",
+      "body": "«Farq» birinchi tashrifni oxirgisidan ayiradi. Harakatlanuvchi obyekt halqalar ichida qora va oq dog‘ qoldiradi."
     },
     "4": {
       "title": "Qiziqarli narsa topdingizmi?",

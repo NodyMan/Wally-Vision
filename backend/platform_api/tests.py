@@ -115,3 +115,12 @@ def test_resolve_not_found(client, bad_query):
         resp = client.get(reverse("resolve"), {"q": bad_query})
         assert resp.status_code == 404
         assert resp.json()["code"] == "not_found"
+
+
+def test_backend_copy_of_presets_matches_shared():
+    """Render deploys only backend/: platform_api/presets.json must stay identical to shared/presets.json."""
+    import json
+    from pathlib import Path
+    here = Path(__file__).resolve().parent
+    shared = here.parent.parent / "shared" / "presets.json"
+    assert json.loads((here / "presets.json").read_text(encoding="utf-8")) == json.loads(shared.read_text(encoding="utf-8"))

@@ -19,7 +19,7 @@
   "stage": {
     "queued": "Navbatda…",
     "search": "NASA arxividan SPHEREx suratlari qidirilmoqda…",
-    "download": "NASA’dan {count} ta surat yuklanmoqda…",
+    "download": "NASA’dan suratlar yuklanmoqda ({count}). Bu bir necha daqiqa olishi mumkin…",
     "stack": "Kadrlar birlashtirilmoqda va moslanmoqda…",
     "done": "Tayyor"
   },
@@ -37,7 +37,7 @@
     "frames": "Miltillash",
     "diff": "Farq",
     "sum": "Chuqur yig‘indi",
-    "diffLegend": "Yonma-yon qora va oq dog‘ = nimadir siljigan (qora — avval, oq — keyin)",
+    "diffLegend": "Yonma-yon qora va oq dog‘ = ehtimoliy harakat (qora — avval, oq — keyin). U faqat halqalar bilan mos kelsa haqiqiy: har bir yulduzda kichik tasodifiy juftliklar bo‘ladi.",
     "label": "Ko‘rish rejimi"
   },
   "rings": {

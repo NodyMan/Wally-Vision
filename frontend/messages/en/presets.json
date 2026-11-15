@@ -3,7 +3,7 @@
   "whatYouSeeTitle": "What am I looking at?",
   "modes": {
     "frames": "Frames",
-    "diff": "Diff",
+    "diff": "Difference",
     "sum": "Stacked"
   },
   "types": {
@@ -13,7 +13,7 @@
   },
   "modeFallback": {
     "frames": "Animated sequence of SPHEREx epochs aligned to a common grid. Look for objects drifting or changing brightness.",
-    "diff": "Difference mode subtracts the median sky across epochs. Moving objects appear as adjacent light and dark spots.",
+    "diff": "Difference mode subtracts one visit from another. A moving object appears as a dark and a bright spot side by side.",
     "sum": "Stacked sum of all epochs to reveal very faint infrared sources."
   }
 }

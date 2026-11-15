@@ -138,7 +138,7 @@ export function ViewerLayout({ player, controls, overlay, toolbar, toolbarExtra,
         <div className="order-2 lg:order-none">{stage}</div>
 
         <aside ref={asideRef} role="toolbar" aria-label={t('viewer.toolbar.label')} aria-orientation="vertical"
-               className={`order-1 flex h-fit scroll-mt-24 flex-col gap-5 p-4 lg:order-none ${CARD}`}>
+               className={`order-3 flex h-fit scroll-mt-24 flex-col gap-5 p-4 lg:order-none ${CARD}`}>
           {toolbar && <Section title={t('viewer.sections.view')}>{toolbar}</Section>}
           {toolbarExtra}
           {sidePanel && <div className="hidden lg:block">{sidePanel}</div>}

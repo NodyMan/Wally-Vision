@@ -17,5 +17,6 @@
   "busy": "Server band. Bir daqiqadan so‘ng qayta urinib ko‘ring.",
   "server_error": "Nimadir xato ketdi. Qayta urinib ko‘ring.",
   "aborted": "So‘rov bekor qilindi.",
-  "cold_disabled": "Bu demo server topshiriqdagi 5 ta obyektni va tayyorlangan maydonlarni ko‘rsatadi. Boshqa koordinatalar uchun SkyBlink’ni mahalliy ishga tushiring (README’ga qarang)."
+  "cold_disabled": "Bu demo server topshiriqdagi 5 ta obyektni va tayyorlangan maydonlarni ko‘rsatadi. Boshqa koordinatalar uchun SkyBlink’ni mahalliy ishga tushiring (README’ga qarang).",
+  "target_saturated": "Bu yulduz SPHEREx uchun juda yorqin: detektor to‘yingan, shuning uchun uning yorqinligini bu yerda o‘lchab bo‘lmaydi."
 }

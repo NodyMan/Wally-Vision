@@ -19,7 +19,7 @@
   "stage": {
     "queued": "Waiting in line…",
     "search": "Searching the NASA archive for SPHEREx images…",
-    "download": "Downloading {count} images from NASA…",
+    "download": "Downloading images from NASA ({count}). This can take a few minutes…",
     "stack": "Stacking and aligning frames…",
     "done": "Done"
   },
@@ -37,7 +37,7 @@
     "frames": "Blink",
     "diff": "Difference",
     "sum": "Deep sum",
-    "diffLegend": "Black + white spot side by side = something moved (black: before, white: after)",
+    "diffLegend": "Black + white spot side by side = possible motion (black: before, white: after). It is real only if it lines up with the rings: every star shows small random pairs.",
     "label": "View mode"
   },
   "rings": {

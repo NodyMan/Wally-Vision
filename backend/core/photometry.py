@@ -24,6 +24,8 @@ from .targets import ProperMotion, mjd_to_year, propagate
 
 BOX_HALF = 1                 # 3×3 pixel box (18.45″ on a side; the SPHEREx PSF is about one pixel wide)
 SKY_INNER, SKY_OUTER = 4, 7  # background ring, pixels from the centre
+SATURATION_BITS = (1 << 1) | (1 << 26)   # OVERFLOW, BLOOM (Explanatory Supplement Table 16)
+SATURATED_SHARE = 0.8        # this share of saturated or flagged points makes the series meaningless
 
 Progress = Callable[[str, float], None]
 
@@ -53,6 +55,9 @@ def measure(hdul, ra: float, dec: float) -> dict | None:
     vals, vvar = img[box], var[box]
     ok = np.isfinite(vals)
     if ok.sum() < 5:
+        # a bright star's core is blanked by the pipeline (OVERFLOW / BLOOM): say so instead of "no data"
+        if "FLAGS" in hdul and np.any(hdul["FLAGS"].data[box].astype(np.int64) & SATURATION_BITS):
+            return {"saturated": True}
         return None
     yy, xx = np.ogrid[:ny, :nx]
     r = np.hypot(xx - ix, yy - iy)
@@ -102,6 +107,9 @@ def series(metas: Sequence, ra: float, dec: float, loader: Callable, pm: ProperM
             res = measure(hdul, pra, pdec)
             if res is None:
                 return None
+            if res.get("saturated"):
+                return {"date_iso": m.date_iso, "date_mjd": round(m.date_mjd, 4), "detector": m.detector,
+                        "obs_id": m.obs_id, "saturated": True}
             return {"date_iso": m.date_iso, "date_mjd": round(m.date_mjd, 4), "detector": m.detector,
                     "obs_id": m.obs_id, **res}
         finally:

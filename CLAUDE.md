@@ -71,6 +71,18 @@ Two teammate folders sit next to it. Read them, copy from them, never edit them:
   listed coordinates for every preset with a proper motion and reuses a previous run's coordinates only if they
   agree within 1″ (so cached cutouts are reused). IRSA gave ~1 cutout/min on 15 Nov: keep `max_per_epoch` at 8.
 
+## Shipped results and video (15 Nov 12:30)
+- `core.config.SHIPPED_DIR` = `backend/viewer/static_cache`: `science/<key>.json` and `catalog/<key>.json` there are
+  read BEFORE `CACHE_DIR` (free hosting wipes its disk). Science keys are `v2|...`; catalog keys are `v3|...`.
+  Fill them only from real API runs (`scripts/warm_science.py`), never by hand. Catalogs are not shipped yet:
+  IRSA TAP answered 502/timeouts all morning on 15 Nov.
+- Saturated targets (Barnard D2, RW Aur, R Dra): light curve and spectrum answer `target_saturated`, and the verdict
+  is cached as `{"error_code": "target_saturated"}`.
+- Blink and Difference stack different exposures: ε Ind B is 6.5 ± 0.7″ in Blink and 6.0 ± 1.1″ in Difference.
+  Quote the Difference value (6.0 ± 1.1″ vs catalogue 6.5″) in the pitch.
+- Demo video: `video/SkyBlink_demo.mp4` (29 s), built by `video/capture.py` (headless Chrome screenshots of the
+  running app) + `video/make_video.py` (PIL + imageio-ffmpeg). No stock, YouTube or generated footage.
+
 ## Incident 14 Nov 22:47 (do not repeat)
 Four preset caches (wise-0855, epsilon-indi-b, rw-aurigae, r-draconis) appeared that were NOT made from IRSA data:
 integer MJDs, identical dates for all four, one constant wavelength, 0.0 masked pixels, no new downloads. They were

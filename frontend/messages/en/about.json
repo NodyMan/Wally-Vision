@@ -6,8 +6,8 @@
     "spherexBody": "NASA's SPHEREx space telescope surveys the entire sky in 102 infrared wavelength channels roughly every 6 months, making it ideal for spotting cool brown dwarfs and changing stars.",
     "motionTitle": "Why do some objects move?",
     "motionBody": "Nearby stars and brown dwarfs appear to drift across background galaxies over months and years because of proper motion and Earth's orbital parallax.",
-    "brownDwarfsTitle": "What are brown dwarfs & Planet X?",
-    "brownDwarfsBody": "Brown dwarfs are 'failed stars' too cool to shine brightly in visible light, so they glow mainly in the infrared. Searching for faint, fast-moving infrared sources could reveal undiscovered nearby brown dwarfs — or even distant solar system worlds.",
+    "brownDwarfsTitle": "What are brown dwarfs?",
+    "brownDwarfsBody": "Brown dwarfs are 'failed stars' too cool to shine brightly in visible light, so they glow mainly in the infrared. Nearby ones move fast across the sky, and SPHEREx sees them twice a year. A hypothetical Planet Nine would be far too faint for SPHEREx; this tool looks for nearby stars and brown dwarfs.",
     "artifactsTitle": "Real object or image artifact?",
     "artifactsBody": "Cosmic rays, hot pixels, and detector edges can mimic bright dots. Real objects repeat smoothly across dates and align with expected sky motion."
   },

@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "barnards-star",
+    "ra": 269.452083,
+    "dec": 4.693364,
+    "type": "high_pm_star",
+    "fov": 300,
+    "default_mode": "diff",
+    "default_detector": 2,
+    "title": {
+      "en": "Barnard's Star",
+      "ru": "Звезда Барнарда",
+      "uz": "Barnard yulduzi"
+    },
+    "short": {
+      "en": "Fastest-moving star across Earth's sky (~10.3″/yr).",
+      "ru": "Самая быстро движущаяся звезда на небе (~10.3″/год).",
+      "uz": "Osmondagi eng tez harakatlanuvchi yulduz (~10.3″/yil)."
+    },
+    "what_you_see": {
+      "en": "Watch the bright star near the center slowly drift upward compared to background stars. Because it is only 6 light-years away, its motion is one of the easiest to spot.",
+      "ru": "Следите за яркой звездой в центре: она постепенно смещается вверх относительно далёких фоновых звёзд. До неё всего 6 световых лет, поэтому её движение заметнее всего.",
+      "uz": "Markazdagi yorqin yulduzga qarang: u uzoq fon yulduzlariga nisbatan sekin yuqoriga siljiydi. U atigi 6 yorug'lik yili uzoqlikda joylashgani uchun harakati yaqqol ko'rinadi."
+    }
+  },
+  {
+    "slug": "epsilon-indi-b",
+    "ra": 331.04383,
+    "dec": -56.78269,
+    "type": "brown_dwarf",
+    "fov": 300,
+    "default_mode": "diff",
+    "default_detector": 6,
+    "title": {
+      "en": "Epsilon Indi Ba/Bb",
+      "ru": "Эпсилон Индейца Ba/Bb",
+      "uz": "Epsilon Indi Ba/Bb"
+    },
+    "short": {
+      "en": "A nearby pair of brown dwarfs orbiting a bright star.",
+      "ru": "Близкая пара коричневых карликов рядом с яркой звездой.",
+      "uz": "Yorqin yulduz atrofidagi yaqin jigarrang mitti juftligi."
+    },
+    "what_you_see": {
+      "en": "This binary brown dwarf system sits only 12 light-years away and shares fast sky motion (~4.7″/yr). Try Diff mode to spot the shift as a bright-and-dark pair.",
+      "ru": "Эта пара коричневых карликов всего в 12 световых годах от нас и быстро смещается по небу (~4.7″/год). Включите режим Diff, чтобы увидеть сдвиг как пару «светлое + тёмное пятно».",
+      "uz": "Bu jigarrang mitti juftligi bizdan atigi 12 yorug'lik yili uzoqlikda va osmon bo'ylab tez siljiydi (~4.7″/yil). Siljishni yorug'-qora juftlik sifatida ko'rish uchun Diff rejimini yoqing."
+    }
+  },
+  {
+    "slug": "wise-0855",
+    "ra": 133.79513,
+    "dec": -7.24515,
+    "type": "brown_dwarf",
+    "fov": 300,
+    "default_mode": "diff",
+    "default_detector": 6,
+    "title": {
+      "en": "WISE 0855−0714",
+      "ru": "WISE 0855−0714",
+      "uz": "WISE 0855−0714"
+    },
+    "short": {
+      "en": "The coldest known brown dwarf (~250 K), moving ~8.1″/yr.",
+      "ru": "Самый холодный известный коричневый карлик (~250 K), сдвиг ~8.1″/год.",
+      "uz": "Ma'lum bo'lgan eng sovuq jigarrang mitti (~250 K), siljishi ~8.1″/yil."
+    },
+    "what_you_see": {
+      "en": "A very faint, cold dwarf moving about 8″ a year. It is not in Gaia (too cold for visible light): turn on the CatWISE layer to see its infrared catalog motion. Right now it passes close to a background star.",
+      "ru": "Очень тусклый холодный карлик, смещается примерно на 8″ в год. В Gaia его нет — он слишком холодный для видимого света: включите слой CatWISE, чтобы увидеть его движение по инфракрасному каталогу. Сейчас он проходит рядом с фоновой звездой.",
+      "uz": "Juda xira sovuq mitti, yiliga taxminan 8″ siljiydi. Gaia’da yo‘q — ko‘rinadigan nur uchun juda sovuq: infraqizil katalogdagi harakatini ko‘rish uchun CatWISE qatlamini yoqing. Hozir u fondagi yulduz yonidan o‘tmoqda."
+    }
+  },
+  {
+    "slug": "rw-aurigae",
+    "ra": 76.95642,
+    "dec": 30.40141,
+    "type": "variable_star",
+    "fov": 300,
+    "default_mode": "frames",
+    "default_detector": 2,
+    "title": {
+      "en": "RW Aurigae",
+      "ru": "RW Возничего",
+      "uz": "RW Aurigae"
+    },
+    "short": {
+      "en": "Young variable star dimmed irregularly by dusty disk clouds.",
+      "ru": "Молодая переменная звезда, чью яркость меняют облака пыли.",
+      "uz": "Chang bulutlari tufayli yorqinligi tartibsiz o'zgaradigan yosh yulduz."
+    },
+    "what_you_see": {
+      "en": "A young double star in dust. It is too bright for SPHEREx in this band (the detector saturates), so its brightness changes cannot be measured here; blink it to see a star that does not move.",
+      "ru": "Молодая двойная звезда в пыли. Для SPHEREx в этом диапазоне она слишком яркая (детектор пересвечен), поэтому изменения её яркости здесь не измерить; мигание показывает звезду, которая не движется.",
+      "uz": "Chang ichidagi yosh qo‘shaloq yulduz. Bu diapazonda SPHEREx uchun juda yorqin (detektor to‘yinadi), shuning uchun yorqinlik o‘zgarishini bu yerda o‘lchab bo‘lmaydi; miltillash siljimaydigan yulduzni ko‘rsatadi."
+    }
+  },
+  {
+    "slug": "r-draconis",
+    "ra": 248.16738,
+    "dec": 66.75489,
+    "type": "variable_star",
+    "fov": 300,
+    "default_mode": "frames",
+    "default_detector": 2,
+    "title": {
+      "en": "R Draconis",
+      "ru": "R Дракона",
+      "uz": "R Draconis"
+    },
+    "short": {
+      "en": "Mira-type pulsating red giant with huge brightness swings.",
+      "ru": "Пульсирующий красный гигант типа Миры с сильным изменением блеска.",
+      "uz": "Yorqinligi kuchli o'zgarib turadigan Mira turidagi pulsatsiyalanuvchi qizil gigant."
+    },
+    "what_you_see": {
+      "en": "A pulsating red giant near the ecliptic pole, so SPHEREx sees it almost continuously. It is far too bright for SPHEREx in this band (the detector saturates), so its pulsation cannot be measured here.",
+      "ru": "Пульсирующий красный гигант у полюса эклиптики, поэтому SPHEREx видит его почти непрерывно. Для SPHEREx в этом диапазоне он слишком яркий (детектор пересвечен), поэтому пульсацию здесь измерить нельзя.",
+      "uz": "Ekliptika qutbi yaqinidagi pulsatsiyalanuvchi qizil gigant, shuning uchun SPHEREx uni deyarli uzluksiz ko‘radi. Bu diapazonda SPHEREx uchun juda yorqin (detektor to‘yinadi), shuning uchun pulsatsiyani bu yerda o‘lchab bo‘lmaydi."
+    }
+  }
+]

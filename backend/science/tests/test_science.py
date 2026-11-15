@@ -135,7 +135,7 @@ def test_false_fast_sources_around_a_saturated_star_are_dropped():
 # ───────── API ─────────
 
 def test_catalog_endpoint(client, monkeypatch):
-    monkeypatch.setattr(catalogs, "fetch", lambda ra, dec, fov: RAW)
+    monkeypatch.setattr(catalogs, "fetch", lambda ra, dec, fov, **kw: RAW)
     r = client.get("/api/catalog?ra=10&dec=20&fov=300")
     assert r.status_code == 200 and len(r.json()["sources"]) == 4 and r.json()["releases"]["gaia"] == "Gaia DR3"
     only = client.get("/api/catalog?ra=10&dec=20&source=catwise").json()["sources"]
@@ -143,7 +143,7 @@ def test_catalog_endpoint(client, monkeypatch):
     assert client.get("/api/catalog?ra=10&dec=120").json() == {"error_code": "invalid_coordinates"}
     assert client.get("/api/catalog?ra=10&dec=20&source=x").status_code == 400
 
-    def down(*a):
+    def down(*a, **kw):
         raise OSError("IRSA is down")
     monkeypatch.setattr(catalogs, "fetch", down)
     r = client.get("/api/catalog?ra=10&dec=20")
@@ -184,3 +184,10 @@ def test_no_images_is_an_error_code(client, monkeypatch):
     monkeypatch.setattr(spherex, "find_images", lambda ra, dec: [])
     body = _wait(client, client.get("/api/spectrum?ra=1&dec=1").json()["job_id"])
     assert body["status"] == "error" and body["error_code"] == "no_data"
+
+
+def test_synthetic_catalog_rows_are_recognised():
+    real = [{"id": "gaia:4472832130942575872"}, {"id": "catwise:J085508.34-071439.2"}]
+    fake = [{"id": "gaia:6412760000000001"}, {"id": "catwise:J220410.5-564658"}, {"id": "simbad:x"}]
+    assert not any(catalogs._looks_synthetic(r) for r in real)
+    assert all(catalogs._looks_synthetic(r) for r in fake)

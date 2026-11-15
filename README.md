@@ -1,6 +1,6 @@
 # SkyBlink
 
-**Blink the infrared sky to discover moving worlds and variable stars in NASA SPHEREx.**
+**Blink NASA SPHEREx infrared images of one patch of sky and see what moved.**
 
 Built for **NASA Space Apps Challenge 2026** — *Planet X and SPHEREx*.
 
@@ -15,9 +15,31 @@ NASA's **SPHEREx** space telescope maps the entire sky roughly every 6 months ac
 - Watch multi-epoch SPHEREx cutouts aligned to a common sky grid and animated smoothly (`frames`, `diff`, `sum` modes).
 - Explore in **Simple Mode** (for beginners) or **Expert Mode** (Gaia DR3 proper-motion vectors, CatWISE2020 overlays, click-to-spectrum and light-curve previews measured on real exposures).
 - Available in **3 languages**: English (`en`), Russian (`ru`), and Uzbek Latin (`uz`), with mobile-first design, keyboard navigation, and `prefers-reduced-motion` support.
-- Flag interesting discoveries with **"I found something!"**, share direct URLs, or embed the viewer anywhere with `<iframe>`.
+- Flag interesting candidates with **"I found something!"**, share direct URLs, or embed the viewer anywhere with `<iframe>`.
 
-> _Demo & GIF:_ Add deployed Vercel/Render URLs and a 30-second recorded GIF of WISE 0855 here before final submission.
+**Demo video (29 s):** [`video/SkyBlink_demo.mp4`](video/SkyBlink_demo.mp4) — screenshots of the running app on real
+SPHEREx data, no stock or generated footage (rebuild with `video/capture.py` + `video/make_video.py`).
+Deployment steps: [`docs/DEPLOY_QUICK.md`](docs/DEPLOY_QUICK.md).
+
+### Results on real data (15 Nov 2026)
+| Target | Detector, mode | What SkyBlink measures | Catalogue |
+|---|---|---|---|
+| Epsilon Indi Ba/Bb | D6, difference | shift **6.0 ± 1.1″** at PA 130° (2025-04-29 → 2026-09-22) | 6.5″ at PA 122° |
+| Barnard's Star | D2, difference (saturated core masked) | shift **11.9 ± 1.3″** at PA 343° | 10.4″ at PA 356° |
+| WISE 0855−0714 | D6, difference | no shift reported: peak only 2–4× the noise, next to a G = 16.3 background star | 8.1″/yr |
+| RW Aurigae, R Draconis | D2, frames | too bright for SPHEREx in this band: light curve and spectrum answer `target_saturated` | — |
+
+Errors are statistical (+) registration (apparent shift of fixed field stars). Blink mode and Difference mode stack
+different exposures, so their numbers differ slightly (ε Ind B: 6.5 ± 0.7″ in Blink, 6.0 ± 1.1″ in Difference);
+both agree with the catalogue.
+
+### Known limits
+- Shifts are not corrected for parallax; between two visits it can add up to twice the parallax (≤ 0.55″ for ε Ind B,
+  ≤ 1.1″ for Barnard's Star), which is within the quoted errors.
+- The registration check is the size of the apparent shift of 1–3 field stars, not a full astrometric solution.
+- Spectrum and light curve are previews: 3×3-pixel photometry on single exposures, no aperture correction.
+- Saturated targets (FLAGS bits 1 and 26 over the core) are reported as saturated, never measured.
+- The catalog layer needs IRSA TAP; when IRSA is slow the layer reports that the catalog is unavailable instead of guessing.
 
 ---
 
@@ -103,12 +125,13 @@ npm run dev
 
 ---
 
-## Team Ownership & Integration Status (Vertical Slices)
-1. **#1 Core Viewer** *(in progress by team #1)* — `backend/core/`, `backend/viewer/`, `/view`, `/api/blink`, `BlinkPlayer`, `lib/store.ts`
-2. **#2 Science Layers** *(in progress by team #2)* — `backend/science/`, `frontend/features/science/`, catalogs, spectrum, light curve, RGB
-3. **#3 Platform & People** *(ready in this branch)* — `backend/skyblink/`, `backend/platform_api/`, `backend/findings/`, CI/deploy (`render.yaml`, GitHub Actions), home page, `en`/`ru`/`uz` i18n, `/about` onboarding + 3-case trainer, Simple/Expert mode toggle, `/findings`, `/embed`, CLI & playground
+## Team Ownership (all three slices merged into this repository)
+1. **#1 Core Viewer** — `backend/core/`, `backend/viewer/`, `/view`, `/api/blink`, `BlinkPlayer`, `lib/store.ts`, measured motion
+2. **#2 Science Layers** — `backend/science/`, `frontend/features/science/`, Gaia/CatWISE catalogs, spectrum and light-curve previews (RGB composite not built)
+3. **#3 Platform & People** — `backend/skyblink/`, `backend/platform_api/`, `backend/findings/`, CI/deploy (`render.yaml`, GitHub Actions), home page, `en`/`ru`/`uz` i18n, `/about` onboarding + 3-case trainer, Simple/Expert mode toggle, `/findings`, `/embed`, CLI & playground
 
-> Note: Until Team #1 and #2 merge their vertical slices, `/view` and `/api/blink` are external integration targets; all Platform (#3) routes (`/`, `/about`, `/findings`, `/embed`) and API endpoints (`/api/health`, `/api/resolve`, `/api/presets`, `/api/findings`) run standalone.
+Checks: `cd backend && python -m pytest -q` (81 tests); `cd frontend && npx tsc --noEmit && npm run lint && npm test`;
+`node scripts/check_i18n.mjs`.
 
 ---
 

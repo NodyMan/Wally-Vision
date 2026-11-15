@@ -13,7 +13,7 @@
   },
   "modeFallback": {
     "frames": "Bitta to'rga tekislangan turli sanalardagi SPHEREx kadrlar animatsiyasi. Obyektlar siljishi yoki yorqinligi o'zgarishini kuzating.",
-    "diff": "Diff rejimi o'rtacha fonni ayiradi. Harakatlanuvchi obyektlar yorug' va qora juftlik sifatida ko'rinadi.",
+    "diff": "«Farq» rejimi bir tashrifni boshqasidan ayiradi. Harakatlanuvchi obyekt yonma-yon qora va oq dog‘ bo‘lib ko‘rinadi.",
     "sum": "Barcha davrlarni jamlash kontrastni oshirib, juda xira infraqizil manbalarni ko'rsatadi."
   }
 }

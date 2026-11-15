@@ -7,15 +7,15 @@
   "steps": {
     "1": {
       "title": "Real NASA SPHEREx snapshots",
-      "body": "Each frame combines infrared exposures taken on different dates, aligned onto the exact same sky grid."
+      "body": "Each frame stacks the SPHEREx exposures of one visit, aligned onto the same sky grid. Visits are months apart."
     },
     "2": {
-      "title": "Press Play to blink",
-      "body": "Use Play/Pause or arrow keys to flip between dates. Stationary stars stay still; nearby worlds shift."
+      "title": "Press ▶ to blink",
+      "body": "Use ▶, the ⏮ ⏭ buttons or the slider to flip between visits. Distant stars stay still; nearby objects shift."
     },
     "3": {
-      "title": "Something jumping? Try Diff mode",
-      "body": "Diff subtracts the average sky. Moving objects stand out as a bright-and-dark pair."
+      "title": "Something jumping? Try Difference",
+      "body": "Difference subtracts the first visit from the last. A moving object leaves a dark and a bright spot inside the rings."
     },
     "4": {
       "title": "Spotted something interesting?",

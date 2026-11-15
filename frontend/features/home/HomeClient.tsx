@@ -41,7 +41,7 @@ export function HomeClient({ initialPresets }: HomeClientProps) {
 
   useEffect(() => {
     let active = true;
-    const retryDelaysMs = [0, 1500, 3000];
+    const retryDelaysMs = [0, 2000, 4000, 8000, 15000, 30000, 30000];   // a sleeping free server needs ~60 s
 
     async function checkBackend() {
       for (let i = 0; i < retryDelaysMs.length; i++) {

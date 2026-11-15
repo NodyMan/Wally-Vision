@@ -66,9 +66,9 @@
       "uz": "Ma'lum bo'lgan eng sovuq jigarrang mitti (~250 K), siljishi ~8.1″/yil."
     },
     "what_you_see": {
-      "en": "WISE 0855 is almost invisible in optical light and shines mainly in the mid-infrared. Look closely at the center in Diff mode and enable Gaia arrows to compare.",
-      "ru": "WISE 0855 почти невидим в обычном свете и светится в среднем инфракрасном диапазоне. Присмотритесь к центру в режиме Diff и сравните со стрелками Gaia.",
-      "uz": "WISE 0855 oddiy yorug'likda deyarli ko'rinmaydi va asosan o'rta infraqizil diapazonda porlaydi. Diff rejimida markazga qarang va Gaia strelkalari bilan solishtiring."
+      "en": "A very faint, cold dwarf moving about 8″ a year. It is not in Gaia (too cold for visible light): turn on the CatWISE layer to see its infrared catalog motion. Right now it passes close to a background star.",
+      "ru": "Очень тусклый холодный карлик, смещается примерно на 8″ в год. В Gaia его нет — он слишком холодный для видимого света: включите слой CatWISE, чтобы увидеть его движение по инфракрасному каталогу. Сейчас он проходит рядом с фоновой звездой.",
+      "uz": "Juda xira sovuq mitti, yiliga taxminan 8″ siljiydi. Gaia’da yo‘q — ko‘rinadigan nur uchun juda sovuq: infraqizil katalogdagi harakatini ko‘rish uchun CatWISE qatlamini yoqing. Hozir u fondagi yulduz yonidan o‘tmoqda."
     }
   },
   {
@@ -90,9 +90,9 @@
       "uz": "Chang bulutlari tufayli yorqinligi tartibsiz o'zgaradigan yosh yulduz."
     },
     "what_you_see": {
-      "en": "This star stays in place, so watch its brightness rather than position. Compare its frames over time and open the light curve tab.",
-      "ru": "Эта звезда не смещается — следите за тем, как меняется её яркость от даты к дате, и загляните во вкладку кривой блеска.",
-      "uz": "Bu yulduz joyidan siljimaydi — sanalar orasida uning yorqinligi qanday o'zgarishini kuzating va yorug'lik egri chizig'ini oching."
+      "en": "A young double star in dust. It is too bright for SPHEREx in this band (the detector saturates), so its brightness changes cannot be measured here; blink it to see a star that does not move.",
+      "ru": "Молодая двойная звезда в пыли. Для SPHEREx в этом диапазоне она слишком яркая (детектор пересвечен), поэтому изменения её яркости здесь не измерить; мигание показывает звезду, которая не движется.",
+      "uz": "Chang ichidagi yosh qo‘shaloq yulduz. Bu diapazonda SPHEREx uchun juda yorqin (detektor to‘yinadi), shuning uchun yorqinlik o‘zgarishini bu yerda o‘lchab bo‘lmaydi; miltillash siljimaydigan yulduzni ko‘rsatadi."
     }
   },
   {
@@ -114,9 +114,9 @@
       "uz": "Yorqinligi kuchli o'zgarib turadigan Mira turidagi pulsatsiyalanuvchi qizil gigant."
     },
     "what_you_see": {
-      "en": "R Draconis pulses like a slow cosmic heartbeat over ~245 days. Watch it brighten and fade across SPHEREx epochs.",
-      "ru": "R Дракона пульсирует с периодом около 245 дней. Наблюдайте, как звезда разгорается и тускнеет между эпохами SPHEREx.",
-      "uz": "R Draconis taxminan 245 kunlik davr bilan pulsatsiyalanadi. SPHEREx davrlari orasida uning yorishishi va xiralashishini kuzating."
+      "en": "A pulsating red giant near the ecliptic pole, so SPHEREx sees it almost continuously. It is far too bright for SPHEREx in this band (the detector saturates), so its pulsation cannot be measured here.",
+      "ru": "Пульсирующий красный гигант у полюса эклиптики, поэтому SPHEREx видит его почти непрерывно. Для SPHEREx в этом диапазоне он слишком яркий (детектор пересвечен), поэтому пульсацию здесь измерить нельзя.",
+      "uz": "Ekliptika qutbi yaqinidagi pulsatsiyalanuvchi qizil gigant, shuning uchun SPHEREx uni deyarli uzluksiz ko‘radi. Bu diapazonda SPHEREx uchun juda yorqin (detektor to‘yinadi), shuning uchun pulsatsiyani bu yerda o‘lchab bo‘lmaydi."
     }
   }
 ]

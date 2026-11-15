@@ -50,5 +50,9 @@ PHOTOMETRY_FLAG_POLICY = {"name": "photometry_v1",
 DEFAULT_WL_TOL_UM = 0.05
 SPHEREX_MID_EPOCH = 2025.9  # середина данных (май 2025 – окт 2026); сюда переносим координаты движущихся целей
 
+# Results committed to the repository (preset fields): read before CACHE_DIR, never written at run time.
+# The free hosting disk is wiped on restart, so the demo must not depend on CACHE_DIR.
+SHIPPED_DIR = Path(__file__).resolve().parent.parent / "viewer" / "static_cache"
+
 # Measured motion (core/motion.py) only for targets expected to move at least this much over the baseline
 MIN_MOTION_ARCSEC = 2.0

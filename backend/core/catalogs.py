@@ -20,12 +20,14 @@ import hashlib
 import io
 import json
 import math
+import re
 import urllib.parse
 
 from . import config, grid as gridmod, net
 from .targets import ProperMotion, mjd_to_year, propagate
 
 TAP_SYNC = config.IRSA + "TAP/sync"
+TAP_TIMEOUT_S = 30   # a hung TAP query must not hold a server thread for minutes
 GAIA_EPOCH = 2016.0
 FAST_PM_MAS = 500.0             # entries faster than this are checked for duplicates of one object
 MERGE_RADIUS_ARCSEC = 8.0
@@ -44,7 +46,7 @@ RELEASES = {"gaia": "Gaia DR3", "catwise": "CatWISE2020"}
 
 def _tap(query: str) -> list[dict]:
     url = TAP_SYNC + "?" + urllib.parse.urlencode({"QUERY": query, "FORMAT": "CSV"})
-    with net.urlopen(url, timeout=90) as r:
+    with net.urlopen(url, timeout=TAP_TIMEOUT_S) as r:
         body = r.read().decode()
     if not body or body.lstrip().startswith("<"):   # errors come back as XML/HTML
         raise OSError("catalog service returned no table")
@@ -161,13 +163,33 @@ def project(raw: list[dict], ra: float, dec: float, fov: float, epoch: float = c
             "dropped_near_bright_star": dropped}
 
 
-def fetch(ra: float, dec: float, fov: float, use_cache: bool = True) -> list[dict]:
+def _looks_synthetic(row: dict) -> bool:
+    """Real Gaia DR3 source_ids are 19 digits without long zero runs; CatWISE names carry two decimals in Dec.
+    Hand-made placeholder rows (seen 14 Nov: gaia:6412760000000001, catwise:J220410.5-564658) fail this."""
+    rid = str(row.get("id", ""))
+    if rid.startswith("gaia:"):
+        sid = rid[5:]
+        return not (sid.isdigit() and 15 <= len(sid) <= 19) or "000000" in sid
+    if rid.startswith("catwise:"):
+        return re.fullmatch(r"J\d{6}\.\d{2}[+-]\d{6}\.\d", rid[8:]) is None
+    return True
+
+
+def fetch(ra: float, dec: float, fov: float, use_cache: bool = True, allow_download: bool = True) -> list[dict]:
     """Raw Gaia + CatWISE rows around the field (cached). Raises OSError if IRSA does not answer."""
     radius = (fov * 0.71 + PM_MARGIN_ARCSEC) / 3600.0
-    key = hashlib.sha1(f"v2|{ra:.5f}|{dec:.5f}|{radius:.5f}".encode()).hexdigest()[:16]
+    # v3: every cache file written before 15 Nov is ignored (synthetic files were found under v2 keys)
+    key = hashlib.sha1(f"v3|{ra:.5f}|{dec:.5f}|{radius:.5f}".encode()).hexdigest()[:16]
     path = config.CACHE_DIR / "catalog" / f"{key}.json"
+    shipped = config.SHIPPED_DIR / "catalog" / f"{key}.json"
+    if use_cache and shipped.exists():
+        return json.loads(shipped.read_text(encoding="utf-8"))
+    if not allow_download:
+        raise OSError("catalog not cached and downloads are disabled")
     if use_cache and path.exists():
-        return json.loads(path.read_text(encoding="utf-8"))
+        cached = json.loads(path.read_text(encoding="utf-8"))
+        if not any(_looks_synthetic(r) for r in cached):
+            return cached
     raw = query_gaia(ra, dec, radius) + query_catwise(ra, dec, radius)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(raw), encoding="utf-8")

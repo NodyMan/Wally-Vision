@@ -32,7 +32,8 @@ log = logging.getLogger(__name__)
 
 SPECTRUM_PER_EPOCH = 2      # images per epoch and band: 6 bands × ~3 epochs × 2 ≈ 36 cutouts on a cold request
 LIGHTCURVE_PER_EPOCH = config.MAX_PER_EPOCH   # same selection as the blink → cutouts come from the cache
-TRACK_RADIUS_ARCSEC = 20.0  # a point this close to a moving preset target is that target: follow its motion
+TRACK_RADIUS_ARCSEC = 20.0
+TRACK_MIN_PM_MAS = 1000.0   # follow only real movers; RW Aur and R Dra barely move  # a point this close to a moving preset target is that target: follow its motion
 # Molecules whose absorption shows up in cold atmospheres; names and explanations are on the frontend (i18n).
 FEATURES = [{"key": "h2o", "wavelength_um": 3.0}, {"key": "ch4", "wavelength_um": 3.3},
             {"key": "co2", "wavelength_um": 4.27}, {"key": "co", "wavelength_um": 4.67}]
@@ -64,7 +65,7 @@ def catalog_view(request):
     if source not in ("all", "gaia", "catwise"):
         return _error("invalid_parameters", 400)
     try:
-        raw = catalogs.fetch(pos[0], pos[1], fov)
+        raw = catalogs.fetch(pos[0], pos[1], fov, allow_download=jobs.ALLOW_COLD)
     except Exception:  # noqa: BLE001 — IRSA TAP is slow or down; the viewer works without the overlay
         log.warning("catalog query failed", exc_info=True)
         return _error("catalog_unavailable", 502)
@@ -98,16 +99,21 @@ def _series_view(request, kind: str):
     preset = store.match_preset(*centre)
     if preset and preset.pm:
         centre = propagate(preset.ra, preset.dec, preset.pm, config.SPHEREX_MID_EPOCH)
-        if store._sep_arcsec(pos[0], pos[1], centre[0], centre[1]) <= TRACK_RADIUS_ARCSEC:
+        fast = math.hypot(preset.pm.pmra_mas_yr, preset.pm.pmdec_mas_yr) >= TRACK_MIN_PM_MAS
+        if fast and store._sep_arcsec(pos[0], pos[1], centre[0], centre[1]) <= TRACK_RADIUS_ARCSEC:
             pos, pm = (preset.ra, preset.dec), preset.pm
 
-    key = hashlib.sha1(f"{kind}|{pos[0]:.6f}|{pos[1]:.6f}|{centre[0]:.6f}|{centre[1]:.6f}|{fov:g}|{detector}|"
+    key = hashlib.sha1(f"v2|{kind}|{pos[0]:.6f}|{pos[1]:.6f}|{centre[0]:.6f}|{centre[1]:.6f}|{fov:g}|{detector}|"
                        f"{bool(pm)}".encode()).hexdigest()[:24]
     path = config.CACHE_DIR / "science" / f"{key}.json"
-    try:
-        return JsonResponse(json.loads(path.read_text(encoding="utf-8")))
-    except (OSError, ValueError):
-        pass
+    for candidate in (config.SHIPPED_DIR / "science" / f"{key}.json", path):
+        try:
+            cached = json.loads(candidate.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if "error_code" in cached:          # a remembered verdict such as target_saturated
+            return _error(cached["error_code"], 422)
+        return JsonResponse(cached)
 
     def work(progress):
         progress("search", 0.02)
@@ -125,6 +131,14 @@ def _series_view(request, kind: str):
         points = photometry.series(chosen, pos[0], pos[1],
                                    lambda m: spherex.fetch_cutout(m, centre[0], centre[1], size),
                                    pm=pm, progress=progress)
+        saturated = [p for p in points if p.get("saturated")]
+        points = [p for p in points if not p.get("saturated")]
+        flagged = sum(1 for p in points if p["flagged"])
+        # a bright star (RW Aur, R Dra in D2) is saturated in SPHEREx: its brightness cannot be measured here
+        if (saturated or flagged) and len(saturated) + flagged >= photometry.SATURATED_SHARE * (len(saturated) + len(points)):
+            path.parent.mkdir(parents=True, exist_ok=True)      # remember it: the answer will not change
+            path.write_text(json.dumps({"error_code": "target_saturated"}), encoding="utf-8")
+            raise blink.BlinkError("target_saturated")
         if kind == "spectrum":
             points = sorted((p for p in points if p["wavelength_um"] is not None),
                             key=lambda p: p["wavelength_um"])

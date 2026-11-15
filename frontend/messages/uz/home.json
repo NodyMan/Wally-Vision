@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "NASA Space Apps 2026 · Planet X & SPHEREx",
-    "title": "Yashirin harakatni ko'rish uchun infraqizil osmonni jonlantiring",
+    "title": "Haqiqiy SPHEREx infraqizil suratlarini solishtiring va yaqin yulduzlar qanday siljishini ko‘ring",
     "subtitle": "Yulduz, jigarrang mitti yoki osmon koordinatalarini kiriting. Turli sanalardagi SPHEREx tasvirlari animatsiyaga aylanadi va siljish yaqqol ko'rinadi.",
     "searchLabel": "Obyekt nomi yoki koordinatalar",
     "searchPlaceholder": "Masalan: WISE 0855, Barnard's Star yoki 08h55m10.8s -07d14m42s",
@@ -13,7 +13,7 @@
     "expertCoordsHint": "Obyekt nomlari (SIMBAD/Sesame), o'nlik darajalar (133.795 -7.245) va HMS/DMS (08h55m10.8s -07d14m42s) qo'llab-quvvatlanadi."
   },
   "presets": {
-    "title": "Tavsiya etilgan obyektlar",
+    "title": "Boshlash uchun: topshiriqdagi 5 obyekt",
     "subtitle": "SPHEREx ning 5 ta tayyor namuna obyektidan boshlang — astronomiya bilimi shart emas."
   },
   "howItWorks": {
@@ -23,7 +23,7 @@
     "step2Title": "2. Sanalar bo'yicha o'zgarishni kuzating",
     "step2Desc": "Turli davr tasvirlari bitta to'rga tekislanib, ravon animatsiya sifatida ko'rsatiladi.",
     "step3Title": "3. Siljish yoki miltillashni payqang",
-    "step3Desc": "Yaqin obyektlar harakati va o'zgaruvchan yulduzlarni ko'rish uchun Diff rejimi yoki Gaia strelkalarini yoqing."
+    "step3Desc": "Yaqin obyektlar siljishini ko‘rish uchun «Farq» rejimini yoki katalog strelkalarini yoqing."
   },
   "stats": {
     "targets": "Topshiriq obyektlari",

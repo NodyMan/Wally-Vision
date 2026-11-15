@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": "NASA Space Apps 2026 · Planet X & SPHEREx",
-    "title": "Blink the infrared sky to discover moving worlds",
+    "title": "Blink real SPHEREx infrared images and watch nearby stars move",
     "subtitle": "Enter any star, brown dwarf, or sky coordinates. Watch SPHEREx images from different dates animate so motion and brightness changes jump right out.",
     "searchLabel": "Object name or coordinates",
     "searchPlaceholder": "e.g. WISE 0855, Barnard's Star, or 08h55m10.8s -07d14m42s",
@@ -13,7 +13,7 @@
     "expertCoordsHint": "Supports object names (SIMBAD/Sesame), decimal degrees (133.795 -7.245), or HMS/DMS (08h55m10.8s -07d14m42s)."
   },
   "presets": {
-    "title": "Featured Discovery Targets",
+    "title": "Five challenge objects",
     "subtitle": "Start with these 5 curated SPHEREx benchmark objects — no astronomy background needed."
   },
   "howItWorks": {
@@ -23,7 +23,7 @@
     "step2Title": "2. Blink across SPHEREx dates",
     "step2Desc": "Images from multiple observation dates are aligned to one grid and animated smoothly.",
     "step3Title": "3. Spot motion or flickering",
-    "step3Desc": "Turn on Diff mode or Gaia arrows to see nearby objects shift and variable stars pulse."
+    "step3Desc": "Turn on Difference mode or the catalog arrows to see nearby objects shift."
   },
   "stats": {
     "targets": "Benchmark targets",
