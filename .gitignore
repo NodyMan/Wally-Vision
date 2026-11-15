@@ -48,8 +48,8 @@ Thumbs.db
 
 # teammates' separate copies (read-only sources, not part of this repository)
 sky blink #2/
-skyblink/
-skyblink_app/
+/skyblink/
+/skyblink_app/
 # local tooling
 .claude/
 # keep the example env file
