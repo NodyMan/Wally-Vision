@@ -3,14 +3,10 @@ services:
     name: skyblink-api
     runtime: python
     rootDir: backend
-    plan: starter
+    plan: free   # no card charge; free services sleep after 15 min idle and have no disk
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
     startCommand: python manage.py migrate --noinput && gunicorn skyblink.wsgi:application --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 120
     healthCheckPath: /api/health
-    disk:
-      name: skyblink-cache
-      mountPath: /var/data
-      sizeGB: 5
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.9"
@@ -31,6 +27,6 @@ services:
       - key: NUM_PROXIES
         value: "1"
       - key: CACHE_DIR
-        value: /var/data/cache
+        value: /tmp/skyblink-cache   # wiped on restart; the five presets ship in the repository
       - key: DATABASE_URL
-        value: sqlite:////var/data/db.sqlite3
+        value: sqlite:////tmp/db.sqlite3   # findings are lost on restart (free plan has no disk)
