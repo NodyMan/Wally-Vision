@@ -1,0 +1,147 @@
+{
+  "toolbar": {
+    "label": "Ko‘rish boshqaruvi"
+  },
+  "player": {
+    "label": "SPHEREx suratlari pleyeri",
+    "frameLabel": "{date} sanasidagi SPHEREx surati, {total} tadan {index}-kadr",
+    "dates": "{from} – {to}",
+    "pair": "{to} minus {from}",
+    "wavelength": "λ {um} mkm"
+  },
+  "tabs": {
+    "label": "Batafsil"
+  },
+  "sidePanel": {
+    "label": "Osmon xaritasi",
+    "toggle": "Osmon xaritasi"
+  },
+  "stage": {
+    "queued": "Navbatda…",
+    "search": "NASA arxividan SPHEREx suratlari qidirilmoqda…",
+    "download": "NASA’dan {count} ta surat yuklanmoqda…",
+    "stack": "Kadrlar birlashtirilmoqda va moslanmoqda…",
+    "done": "Tayyor"
+  },
+  "detector": {
+    "label": "To‘lqin uzunligi diapazoni",
+    "all": "Barcha diapazonlar (alohida)",
+    "d1": "0,75–1,1 mkm",
+    "d2": "1,1–1,65 mkm",
+    "d3": "1,6–2,4 mkm",
+    "d4": "2,4–3,8 mkm",
+    "d5": "3,8–4,4 mkm",
+    "d6": "4,4–5,0 mkm — jigarrang mittilar uchun eng yaxshisi"
+  },
+  "mode": {
+    "frames": "Miltillash",
+    "diff": "Farq",
+    "sum": "Chuqur yig‘indi",
+    "diffLegend": "Yonma-yon qora va oq dog‘ = nimadir siljigan (qora — avval, oq — keyin)",
+    "label": "Ko‘rish rejimi"
+  },
+  "rings": {
+    "before": "Avval qayerda edi",
+    "after": "Hozir qayerda bo‘lishi kerak",
+    "expected": "Obyekt qayerda bo‘lishi kerak",
+    "now": "HOZIR",
+    "was": "AVVAL"
+  },
+  "warnings": {
+    "wavelength_mismatch": "Davrlar biroz farqli to‘lqin uzunligida olingan — yorqinlik o‘zgarishi haqiqiy bo‘lmasligi mumkin.",
+    "few_epochs": "Bu diapazon uchun bu yerda hozircha SPHEREx suratlari kam.",
+    "partial_download": "Ba’zi suratlar NASA’dan yuklanmadi (server band).",
+    "wavelength_unknown": "Ba’zi suratlar uchun to‘lqin uzunligini aniqlab bo‘lmadi."
+  },
+  "controls": {
+    "playback": "Ijro",
+    "play": "Boshlash",
+    "pause": "Pauza",
+    "prev": "Oldingi kadr",
+    "next": "Keyingi kadr",
+    "frame": "Kadr",
+    "speed": "Tezlik",
+    "fps": "{fps} kadr/s",
+    "zoom": "Masshtab",
+    "zoomIn": "Yaqinlashtirish",
+    "zoomOut": "Uzoqlashtirish",
+    "zoomReset": "Masshtabni tiklash",
+    "rings": "Halqalar",
+    "hint": "Probel: boshlash yoki pauza · ← →: kadrlar · sichqoncha g‘ildiragi yoki + −: masshtab · sudrash: siljitish · bosish: pikselni tanlash"
+  },
+  "diffView": {
+    "label": "Farq ko‘rinishi",
+    "pair": "Oxirgisi minus birinchisi",
+    "epochs": "Har bir tashrif"
+  },
+  "fov": {
+    "label": "Ko‘rish maydoni",
+    "arcmin": "{value}′",
+    "hint": "Keng maydon uzoqroq yuklanadi"
+  },
+  "state": {
+    "empty": "SPHEREx suratlarini ko‘rish uchun obyektni tanlang yoki koordinatalarni kiriting.",
+    "error": "Suratlarni yuklab bo‘lmadi. Qayta urinib ko‘ring."
+  },
+  "progress": {
+    "label": "SPHEREx suratlari yuklanmoqda"
+  },
+  "title": {
+    "unnamed": "Osmondagi nuqta",
+    "empty": "Ko‘rish oynasi"
+  },
+  "sections": {
+    "view": "Ko‘rinish"
+  },
+  "share": {
+    "button": "Ulashish",
+    "copied": "Havola nusxalandi"
+  },
+  "readout": {
+    "title": "Ko‘rsatkichlar",
+    "visits": "Tashriflar",
+    "images": "Suratlar",
+    "dates": "Sanalar",
+    "wavelength": "To‘lqin uzunligi",
+    "pixel": "Piksel",
+    "masked": "Yashirilgan piksellar",
+    "picked": "Tanlangan piksel",
+    "none": "—",
+    "shift": "O‘lchangan siljish",
+    "predicted": "Katalog bashorati",
+    "registration": "Moslash tekshiruvi",
+    "registrationValue": "{value}″ (yulduzlar: {count})",
+    "shiftNote": "Nishonning {from} va {to} sanalaridagi sentroidlari (farq kadridagi xochlar). Moslash tekshiruvi — qo‘zg‘almas yulduzlarning ko‘rinma siljishi, ya’ni moslash xatomiz. Dastlabki o‘lchov.",
+    "coreMasked": "Yulduz yadrosi haddan tashqari yorqin va niqoblangan, shuning uchun siljish niqoblangan yadro markazlari orasida o‘lchandi."
+  },
+  "compass": {
+    "n": "Shm",
+    "e": "Shq",
+    "label": "Shimol yuqorida, sharq chapda"
+  },
+  "timeline": {
+    "label": "Vaqt shkalasi",
+    "visits": "Tashriflar",
+    "exposures": "Suratlar",
+    "jump": "{date} tashrifini ko‘rsatish (suratlar: {count})"
+  },
+  "bands": {
+    "label": "To‘lqin uzunligi",
+    "note": "Har bir diapazon o‘z yorqinlik shkalasi bilan ko‘rsatiladi. Oddiy yulduzlar uzun to‘lqinlarda xiralashadi, juda sovuq obyektlar esa faqat u yerda paydo bo‘ladi.",
+    "open": "Barcha to‘lqin uzunliklarini solishtirish",
+    "openHint": "6 diapazonda chuqur yig‘indi, 0,75–5,0 mkm"
+  },
+  "stats": {
+    "label": "Asosiy raqamlar",
+    "visits": "Tashriflar",
+    "exposures": "Suratlar",
+    "perVisit": "har tashrifga {value}",
+    "shift": "O‘lchangan siljish",
+    "shiftSub": "± {err}″ · katalog {expected}″",
+    "notMeasured": "faqat harakatlanuvchi obyektlar uchun",
+    "wavelength": "To‘lqin uzunligi"
+  },
+  "rail": {
+    "label": "Bo‘limlar"
+  }
+}

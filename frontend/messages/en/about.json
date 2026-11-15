@@ -1,0 +1,44 @@
+{
+  "title": "About SkyBlink & SPHEREx",
+  "intro": "SkyBlink makes NASA's all-sky infrared survey SPHEREx easy to explore for everyone — from curious beginners to citizen scientists hunting brown dwarfs.",
+  "sections": {
+    "spherexTitle": "What is SPHEREx?",
+    "spherexBody": "NASA's SPHEREx space telescope surveys the entire sky in 102 infrared wavelength channels roughly every 6 months, making it ideal for spotting cool brown dwarfs and changing stars.",
+    "motionTitle": "Why do some objects move?",
+    "motionBody": "Nearby stars and brown dwarfs appear to drift across background galaxies over months and years because of proper motion and Earth's orbital parallax.",
+    "brownDwarfsTitle": "What are brown dwarfs & Planet X?",
+    "brownDwarfsBody": "Brown dwarfs are 'failed stars' too cool to shine brightly in visible light, so they glow mainly in the infrared. Searching for faint, fast-moving infrared sources could reveal undiscovered nearby brown dwarfs — or even distant solar system worlds.",
+    "artifactsTitle": "Real object or image artifact?",
+    "artifactsBody": "Cosmic rays, hot pixels, and detector edges can mimic bright dots. Real objects repeat smoothly across dates and align with expected sky motion."
+  },
+  "practice": {
+    "title": "Quick training: Spot the real signal",
+    "subtitle": "Step through the 4 simulated epochs below and classify what you see.",
+    "frameLabel": "Epoch",
+    "nextFrame": "Step epoch",
+    "play": "Play blink",
+    "pause": "Pause",
+    "choices": {
+      "motion": "Moving object",
+      "variable": "Variable star",
+      "artifact": "Detector artifact"
+    },
+    "correct": "Correct!",
+    "tryAgain": "Not quite — look at how the dot behaves across all 4 epochs.",
+    "cases": {
+      "1": {
+        "title": "Example A: Gradual shift",
+        "explanation": "The source moves steadily pixel by pixel across consecutive epochs while background stars stay fixed — a classic brown dwarf or nearby star signature."
+      },
+      "2": {
+        "title": "Example B: Brightness pulse",
+        "explanation": "The star never moves from its coordinates, yet its brightness rises and fades smoothly across epochs — typical of a variable star like R Draconis."
+      },
+      "3": {
+        "title": "Example C: Single-frame flash",
+        "explanation": "A sharp dot appears in only one epoch and vanishes completely in the others — likely a cosmic ray hit or hot pixel artifact, not a real celestial object."
+      }
+    }
+  },
+  "linksTitle": "Data sources & inspiration"
+}

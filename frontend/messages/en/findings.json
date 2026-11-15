@@ -1,0 +1,30 @@
+{
+  "title": "Community Findings",
+  "subtitle": "Interesting moving or variable candidates flagged by SkyBlink explorers.",
+  "reportButton": "I found something!",
+  "communityTab": "All findings",
+  "myFindings": "My saved findings",
+  "empty": "No findings submitted yet. Open the viewer and flag an interesting target!",
+  "myEmpty": "You have not saved any findings in this browser yet.",
+  "openInViewer": "Open in Viewer",
+  "anonymous": "Anonymous Explorer",
+  "status": {
+    "new": "New",
+    "reviewed": "Reviewed"
+  },
+  "form": {
+    "title": "Report a candidate",
+    "coordinates": "Coordinates (RA / Dec)",
+    "raLabel": "RA (deg)",
+    "decLabel": "Dec (deg)",
+    "noteLabel": "What did you notice?",
+    "notePlaceholder": "e.g. Faint dot slowly shifting lower-left across dates…",
+    "nicknameLabel": "Nickname (optional)",
+    "nicknamePlaceholder": "Anonymous Explorer",
+    "submit": "Save finding",
+    "submitting": "Saving…",
+    "cancel": "Cancel",
+    "close": "Close",
+    "success": "Finding saved! Thank you for exploring."
+  }
+}

@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/*
+  SkyBlink look (owner's reference, 15 Nov): a light mission dashboard.
+  - pale grey-green page with a faint grid, white rounded cards, soft shadows;
+  - one accent: green. Large light geometric headings, small grey labels, big numbers in tiles;
+  - sky images stay on black: they are data, not decoration.
+  The palettes used across all components are remapped here, so every page (platform #3, viewer #1,
+  science #2) changes together: `slate-*` is inverted (950 = page, 100 = body text), `white` is the ink
+  colour of headings, `sky-*` is the green accent.
+*/
+
+:root {
+  --background: #f1f4ef;
+  --foreground: #1c211b;
+  --accent: #3f8d35;
+  --card: #ffffff;
+  --grid: rgb(28 33 27 / 0.045);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-display), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-readout), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@theme {
+  /* inverted neutrals: 950 = page, 900 = card, 800/700 = hairlines, 400 = muted text, 100 = body text */
+  --color-slate-950: #f1f4ef;
+  --color-slate-900: #ffffff;
+  --color-slate-800: #e4e9e1;
+  --color-slate-700: #d2d9ce;
+  --color-slate-600: #b3bcae;
+  --color-slate-500: #8b9486;
+  --color-slate-400: #6a7366;
+  --color-slate-300: #4b5347;
+  --color-slate-200: #343a31;
+  --color-slate-100: #1c211b;
+  /* headings and "strong" text */
+  --color-white: #141813;
+
+  /* the accent: green */
+  --color-sky-200: #d8eccf;
+  --color-sky-300: #9ccd8b;
+  --color-sky-400: #3f8d35;
+  --color-sky-500: #4a9a3f;
+  --color-sky-600: #357a2c;
+  --color-sky-950: #e6f2e0;
+
+  /* rounded, soft cards as in the reference */
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
+}
+
+body {
+  background-color: var(--background);
+  /* faint engineering grid */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.03em;
+}
+
+::selection {
+  background: var(--color-sky-200);
+  color: var(--foreground);
+}
+
+/* Small grey label above a value, as in the reference ("Spacecraft", "Coordinates"). */
+@utility hud-label {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--color-slate-400);
+}
+
+/* Value: tabular digits, regular weight. */
+@utility hud-value {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-slate-100);
+}
+
+/* A card: white, rounded, hairline border, soft shadow. */
+@utility card {
+  background: var(--card);
+  border: 1px solid var(--color-slate-800);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 1px 2px rgb(20 24 19 / 0.04), 0 8px 24px -12px rgb(20 24 19 / 0.12);
+}
+
+/* Kept for compatibility: the light theme draws no corner ticks. */
+@utility hud-corners {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

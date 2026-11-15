@@ -1,0 +1,67 @@
+{
+  "tabs": {
+    "spectrum": "Spektr",
+    "lightcurve": "Yorqinlik egri chizig‘i",
+    "sky": "Osmon xaritasi"
+  },
+  "catalogs": {
+    "label": "Katalog qatlamlari",
+    "gaia": "Gaia",
+    "catwise": "CatWISE",
+    "years": "Strelkalar ko‘rsatadi",
+    "yearsValue": "{years} yil",
+    "loading": "Kataloglar yuklanmoqda…",
+    "count": "Manbalar: {count}; harakatlanadi va Gaia’da yo‘q: {lone}"
+  },
+  "needTarget": "Avval obyektni oching.",
+  "place": {
+    "picked": "Tanlangan piksel o‘lchanmoqda:",
+    "target": "Nishon o‘lchanmoqda:",
+    "hint": "boshqa pikselni o‘lchash uchun suratda istalgan pikselni bosing"
+  },
+  "csv": "CSV yuklab olish",
+  "yLabel": "Fondan yuqori yorqinlik, MYan/sr",
+  "spectrum": {
+    "build": "Spektrni qurish",
+    "slow": "Birinchi marta suratlar NASA’dan yuklanadi, bu bir necha daqiqa olishi mumkin.",
+    "x": "To‘lqin uzunligi, mkm",
+    "aria": "Spektr, nuqtalar: {count}",
+    "preview": "Turli sanalarda olingan alohida suratlar ({count}) bo‘yicha dastlabki baho; rang detektor diapazonini bildiradi, xira nuqtalarda sifat bayroqlari bor. Bu kalibrlangan fotometriya emas."
+  },
+  "lightcurve": {
+    "build": "Yorqinlikni vaqt bo‘yicha o‘lchash (D{band} diapazoni)",
+    "x": "Sana",
+    "aria": "Yorqinlik egri chizig‘i, nuqtalar: {count}",
+    "preview": "Dastlabki baho. Bu suratlar obyektni {from} dan {to} mkm gacha to‘lqin uzunliklarida ko‘rgan, shuning uchun tarqoqlikning bir qismi o‘zgaruvchanlik emas, rangdir.",
+    "previewNoWl": "Dastlabki baho. Bu suratlarning to‘lqin uzunligi noma’lum, shuning uchun tarqoqlikning bir qismi o‘zgaruvchanlik emas, rang bo‘lishi mumkin."
+  },
+  "features": {
+    "h2o": {
+      "short": "H₂O",
+      "text": "suv bug‘i va muz"
+    },
+    "ch4": {
+      "short": "CH₄",
+      "text": "metan, juda sovuq jigarrang mittilar va gigant sayyoralar belgisi"
+    },
+    "co2": {
+      "short": "CO₂",
+      "text": "karbonat angidrid"
+    },
+    "co": {
+      "short": "CO",
+      "text": "is gazi"
+    }
+  },
+  "sky": {
+    "intro": "Shu joyni boshqa osmon sharhlarida ko‘ring.",
+    "load": "Osmon xaritasini yuklash",
+    "survey": "Sharh",
+    "unwise": "unWISE (infraqizil)",
+    "twomass": "2MASS (yaqin infraqizil)",
+    "dss": "DSS2 (ko‘rinadigan nur)",
+    "failed": "Osmon xaritasini yuklab bo‘lmadi.",
+    "needTarget": "Avval obyektni oching."
+  },
+  "flagged": "Xira nuqtalarda sifat bayroqlari bor (masalan, yulduz haddan tashqari yorqin)."
+}

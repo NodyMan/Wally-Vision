@@ -1,0 +1,45 @@
+{
+  "appName": "SkyBlink",
+  "skipToContent": "Asosiy tarkibga o'tish",
+  "tagline": "NASA SPHEREx tasvirlarida harakatlanuvchi obyektlar va o'zgaruvchan yulduzlarni toping",
+  "nav": {
+    "home": "Bosh sahifa",
+    "viewer": "Ko'rish oynasi",
+    "findings": "Topilmalar",
+    "about": "Loyiha haqida"
+  },
+  "language": {
+    "label": "Til",
+    "en": "English",
+    "ru": "Русский",
+    "uz": "O'zbekcha"
+  },
+  "simpleMode": {
+    "label": "Oddiy rejim",
+    "simple": "Oddiy",
+    "expert": "Ekspert",
+    "hint": "Murakkab filtrlar va ilmiy qatlamlarni yashirish"
+  },
+  "embed": {
+    "button": "Joylashtirish",
+    "copied": "Iframe kodi nusxalandi!",
+    "copyFailed": "Nusxalab bo'lmadi — qo'lda nusxalang:",
+    "openFull": "SkyBlink da ochish",
+    "waiting": "Ichki ko'rish oynasi tayyor — nishon koordinatalari"
+  },
+  "status": {
+    "loading": "Yuklanmoqda…",
+    "retry": "Qayta urinish",
+    "apiOnline": "Server ishlayapti",
+    "apiWaking": "NASA ma'lumotlar xizmatiga ulanmoqda…",
+    "apiOffline": "Serverga ulanib bo'lmadi"
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "body": "So'ralgan sahifa yoki osmon hududi topilmadi.",
+    "backHome": "Bosh sahifaga"
+  },
+  "footer": {
+    "credit": "NASA Space Apps 2026 uchun yaratildi · NASA’ning rasmiy mahsuloti emas · Ma’lumotlar: SPHEREx spektral suratlari (IRSA SIA v2: spherex_dr1, spherex_qr3), IRSA TAP orqali Gaia DR3 va CatWISE2020 · Astropy, reproject · nomlar: CDS Sesame · osmon xaritasi: Aladin Lite (CDS)"
+  }
+}

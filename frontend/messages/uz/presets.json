@@ -1,0 +1,19 @@
+{
+  "openInViewer": "Ochish",
+  "whatYouSeeTitle": "Men nimani ko'ryapman?",
+  "modes": {
+    "frames": "Kadrlar",
+    "diff": "Farq",
+    "sum": "Jamlash"
+  },
+  "types": {
+    "brown_dwarf": "Jigarrang mitti",
+    "high_pm_star": "Tez harakatlanuvchi yulduz",
+    "variable_star": "O'zgaruvchan yulduz"
+  },
+  "modeFallback": {
+    "frames": "Bitta to'rga tekislangan turli sanalardagi SPHEREx kadrlar animatsiyasi. Obyektlar siljishi yoki yorqinligi o'zgarishini kuzating.",
+    "diff": "Diff rejimi o'rtacha fonni ayiradi. Harakatlanuvchi obyektlar yorug' va qora juftlik sifatida ko'rinadi.",
+    "sum": "Barcha davrlarni jamlash kontrastni oshirib, juda xira infraqizil manbalarni ko'rsatadi."
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "target": {
+    "ra": 76.956424,
+    "dec": 30.401349,
+    "name": "RW Aur",
+    "coordinate_epoch": 2025.9,
+    "catalog_ra": 76.95642,
+    "catalog_dec": 30.40141,
+    "pm_mas_yr": [
+      1.2,
+      -22.3
+    ]
+  },
+  "fov_arcsec": 300,
+  "mode": "frames",
+  "grid": {
+    "id": "f33436fad9b1",
+    "width": 49,
+    "height": 49,
+    "pixel_scale_arcsec": 6.15,
+    "pixel_origin": "top-left, 0-based (canvas); wcs_header is FITS (y up, CRPIX 1-based)",
+    "wcs_header": {
+      "WCSAXES": 2,
+      "CRPIX1": 25.0,
+      "CRPIX2": 25.0,
+      "CDELT1": -0.0017083333333333,
+      "CDELT2": 0.0017083333333333,
+      "CUNIT1": "deg",
+      "CUNIT2": "deg",
+      "CTYPE1": "RA---TAN",
+      "CTYPE2": "DEC--TAN",
+      "CRVAL1": 76.95642382608,
+      "CRVAL2": 30.401348675,
+      "LONPOLE": 180.0,
+      "LATPOLE": 30.401348675,
+      "MJDREF": 0.0,
+      "RADESYS": "ICRS"
+    }
+  },
+  "frames": [
+    {
+      "date_iso": "2025-09-08",
+      "date_end_iso": "2025-09-10",
+      "date_mjd": 60926.2751,
+      "n_images": 2,
+      "detector": 2,
+      "wavelength_range_um": [
+        1.103,
+        1.65
+      ],
+      "target_wavelength_um": 1.4357,
+      "target_wavelength_span_um": [
+        1.4303,
+        1.4411
+      ],
+      "target_bandwidth_um": 0.035,
+      "target_xy": [
+        24.0,
+        24.0
+      ],
+      "id": "8bcecfd7395817140d4a",
+      "kind": "epoch",
+      "url": "/api/frame/8bcecfd7395817140d4a.png"
+    },
+    {
+      "date_iso": "2026-03-01",
+      "date_end_iso": "2026-03-09",
+      "date_mjd": 61100.2054,
+      "n_images": 1,
+      "detector": 2,
+      "wavelength_range_um": [
+        1.103,
+        1.65
+      ],
+      "target_wavelength_um": 1.427,
+      "target_wavelength_span_um": [
+        1.427,
+        1.427
+      ],
+      "target_bandwidth_um": 0.0347,
+      "target_xy": [
+        24.0,
+        24.0
+      ],
+      "id": "0b0db2ec770c2b4310eb",
+      "kind": "epoch",
+      "url": "/api/frame/0b0db2ec770c2b4310eb.png"
+    },
+    {
+      "date_iso": "2026-09-10",
+      "date_end_iso": "2026-09-15",
+      "date_mjd": 61293.3785,
+      "n_images": 2,
+      "detector": 2,
+      "wavelength_range_um": [
+        1.103,
+        1.65
+      ],
+      "target_wavelength_um": 1.4565,
+      "target_wavelength_span_um": [
+        1.4511,
+        1.4619
+      ],
+      "target_bandwidth_um": 0.0358,
+      "target_xy": [
+        24.0,
+        24.0
+      ],
+      "id": "c1722fb0c1cdfecb579c",
+      "kind": "epoch",
+      "url": "/api/frame/c1722fb0c1cdfecb579c.png"
+    }
+  ],
+  "warnings": [],
+  "flags_summary": {
+    "bad_pixel_fraction": 0.018,
+    "policy": "display_v1"
+  }
+}

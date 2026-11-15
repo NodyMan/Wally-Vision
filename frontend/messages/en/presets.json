@@ -1,0 +1,19 @@
+{
+  "openInViewer": "Open in Viewer",
+  "whatYouSeeTitle": "What am I looking at?",
+  "modes": {
+    "frames": "Frames",
+    "diff": "Diff",
+    "sum": "Stacked"
+  },
+  "types": {
+    "brown_dwarf": "Brown dwarf",
+    "high_pm_star": "Fast-moving star",
+    "variable_star": "Variable star"
+  },
+  "modeFallback": {
+    "frames": "Animated sequence of SPHEREx epochs aligned to a common grid. Look for objects drifting or changing brightness.",
+    "diff": "Difference mode subtracts the median sky across epochs. Moving objects appear as adjacent light and dark spots.",
+    "sum": "Stacked sum of all epochs to reveal very faint infrared sources."
+  }
+}

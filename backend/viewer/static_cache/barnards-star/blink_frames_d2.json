@@ -1,0 +1,146 @@
+{
+  "target": {
+    "ra": 269.44629,
+    "dec": 4.767917,
+    "name": "Barnard's Star",
+    "coordinate_epoch": 2025.9,
+    "catalog_ra": 269.4520769586187,
+    "catalog_dec": 4.69336496657667,
+    "pm_mas_yr": [
+      -801.6,
+      10362.4
+    ]
+  },
+  "fov_arcsec": 300,
+  "mode": "frames",
+  "grid": {
+    "id": "3f78276066db",
+    "width": 49,
+    "height": 49,
+    "pixel_scale_arcsec": 6.15,
+    "pixel_origin": "top-left, 0-based (canvas); wcs_header is FITS (y up, CRPIX 1-based)",
+    "wcs_header": {
+      "WCSAXES": 2,
+      "CRPIX1": 25.0,
+      "CRPIX2": 25.0,
+      "CDELT1": -0.0017083333333333,
+      "CDELT2": 0.0017083333333333,
+      "CUNIT1": "deg",
+      "CUNIT2": "deg",
+      "CTYPE1": "RA---TAN",
+      "CTYPE2": "DEC--TAN",
+      "CRVAL1": 269.44629017885,
+      "CRVAL2": 4.7679166776878,
+      "LONPOLE": 180.0,
+      "LATPOLE": 4.7679166776878,
+      "MJDREF": 0.0,
+      "RADESYS": "ICRS"
+    }
+  },
+  "frames": [
+    {
+      "date_iso": "2025-08-21",
+      "date_end_iso": "2025-08-30",
+      "date_mjd": 60908.9819,
+      "n_images": 3,
+      "detector": 2,
+      "wavelength_range_um": [
+        1.103,
+        1.65
+      ],
+      "target_wavelength_um": 1.4961,
+      "target_wavelength_span_um": [
+        1.4265,
+        1.5167
+      ],
+      "target_bandwidth_um": 0.0365,
+      "target_xy": [
+        23.97,
+        24.42
+      ],
+      "id": "4a54f288c7fca38ac359",
+      "kind": "epoch",
+      "url": "/api/frame/4a54f288c7fca38ac359.png"
+    },
+    {
+      "date_iso": "2026-03-15",
+      "date_end_iso": "2026-03-22",
+      "date_mjd": 61114.032,
+      "n_images": 2,
+      "detector": 2,
+      "wavelength_range_um": [
+        1.103,
+        1.65
+      ],
+      "target_wavelength_um": 1.4808,
+      "target_wavelength_span_um": [
+        1.4454,
+        1.5163
+      ],
+      "target_bandwidth_um": 0.0365,
+      "target_xy": [
+        24.04,
+        23.48
+      ],
+      "id": "c5fc00b458d88a86d79b",
+      "kind": "epoch",
+      "url": "/api/frame/c5fc00b458d88a86d79b.png"
+    },
+    {
+      "date_iso": "2026-08-18",
+      "date_end_iso": "2026-09-22",
+      "date_mjd": 61270.8671,
+      "n_images": 3,
+      "detector": 2,
+      "wavelength_range_um": [
+        1.103,
+        1.65
+      ],
+      "target_wavelength_um": 1.5111,
+      "target_wavelength_span_um": [
+        1.4424,
+        1.5111
+      ],
+      "target_bandwidth_um": 0.0371,
+      "target_xy": [
+        24.1,
+        22.74
+      ],
+      "id": "401c2de08bf3cce87b65",
+      "kind": "epoch",
+      "motion": {
+        "from_xy": [
+          23.93,
+          24.48
+        ],
+        "to_xy": [
+          24.5,
+          22.63
+        ],
+        "shift_arcsec": 11.89,
+        "shift_err_arcsec": 1.29,
+        "stat_err_arcsec": 0.55,
+        "pa_deg": 342.9,
+        "expected_shift_arcsec": 10.36,
+        "expected_pa_deg": 355.6,
+        "years": 0.991,
+        "snr": null,
+        "centroid_on": "masked_core",
+        "core_masked": true,
+        "reference_shift_arcsec": 1.17,
+        "n_reference_stars": 2,
+        "method": "flux-weighted centroid r=3.5 px, ring 5-8 px; error = statistical (+) registration, registration = median apparent shift of bright field stars; preview",
+        "pair": [
+          "2025-08-21",
+          "2026-08-18"
+        ]
+      },
+      "url": "/api/frame/401c2de08bf3cce87b65.png"
+    }
+  ],
+  "warnings": [],
+  "flags_summary": {
+    "bad_pixel_fraction": 0.0233,
+    "policy": "display_v1"
+  }
+}

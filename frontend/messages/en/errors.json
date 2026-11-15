@@ -1,0 +1,21 @@
+{
+  "no_data": "No SPHEREx images are available at these coordinates yet.",
+  "few_epochs": "Only a few observation dates are available here; motion may be subtle.",
+  "irsa_timeout": "NASA IRSA archive is taking too long to respond. Please try again in a moment.",
+  "fov_too_large": "Requested field of view is too large. Please choose a smaller region.",
+  "not_found": "Could not find an object or parse coordinates from your query.",
+  "network_error": "Network error while contacting SkyBlink server.",
+  "rate_limited": "Too many submissions in a short time. Please try again later.",
+  "validation_error": "Please check the submitted fields and coordinates.",
+  "invalid_submission": "Submitted candidate note or coordinates could not be accepted.",
+  "unknown": "Something went wrong. Please try again.",
+  "invalid_coordinates": "These coordinates are not valid. RA is 0–360°, Dec is −90° to +90°.",
+  "invalid_parameters": "The request is not valid.",
+  "unsupported_product": "This kind of data is not supported.",
+  "wavelength_mismatch": "The visits were taken at different wavelengths and cannot be compared fairly.",
+  "catalog_unavailable": "Catalogs are unavailable right now.",
+  "busy": "The server is busy. Please try again in a minute.",
+  "server_error": "Something went wrong. Please try again.",
+  "aborted": "The request was cancelled.",
+  "cold_disabled": "This demo server shows the 5 challenge objects and fields already prepared. For any other coordinates, run SkyBlink locally (see README)."
+}

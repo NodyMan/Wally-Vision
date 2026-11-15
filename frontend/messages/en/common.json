@@ -1,0 +1,45 @@
+{
+  "appName": "SkyBlink",
+  "skipToContent": "Skip to main content",
+  "tagline": "Spot moving worlds & variable stars in NASA SPHEREx",
+  "nav": {
+    "home": "Explore",
+    "viewer": "Viewer",
+    "findings": "Findings",
+    "about": "About"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ru": "Русский",
+    "uz": "O'zbekcha"
+  },
+  "simpleMode": {
+    "label": "Simple mode",
+    "simple": "Simple",
+    "expert": "Expert",
+    "hint": "Hide advanced filters and scientific overlays"
+  },
+  "embed": {
+    "button": "Embed",
+    "copied": "Embed HTML copied!",
+    "copyFailed": "Copy failed — select and copy manually:",
+    "openFull": "Open in SkyBlink",
+    "waiting": "Embedded viewer ready — target coordinates"
+  },
+  "status": {
+    "loading": "Loading…",
+    "retry": "Retry",
+    "apiOnline": "Backend online",
+    "apiWaking": "Waking up NASA data service…",
+    "apiOffline": "Backend unavailable"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The sky coordinates or page you requested could not be found.",
+    "backHome": "Back to Home"
+  },
+  "footer": {
+    "credit": "Built for NASA Space Apps 2026 · Not an official NASA product · Data: SPHEREx spectral images (IRSA SIA v2: spherex_dr1, spherex_qr3), Gaia DR3 and CatWISE2020 via IRSA TAP · Astropy, reproject · names: CDS Sesame · sky map: Aladin Lite (CDS)"
+  }
+}

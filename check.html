@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkyBlink Function Check &amp; API Playground</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #020617;
+      --card: #0f172a;
+      --border: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --ok: #34d399;
+      --err: #fb7185;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+    .container { max-width: 1024px; margin: 0 auto; display: grid; gap: 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+    h1, h2, h3 { margin: 0 0 8px; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.125rem; color: var(--accent); }
+    p { margin: 0 0 12px; color: var(--muted); font-size: 0.92rem; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    input, select {
+      background: #020617;
+      color: var(--text);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.92rem;
+    }
+    input[type="text"] { flex: 1; min-width: 240px; }
+    button {
+      background: var(--accent);
+      color: #020617;
+      border: 0;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    button.secondary {
+      background: #1e293b;
+      color: var(--text);
+      border: 1px solid #334155;
+    }
+    button:hover { opacity: 0.92; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip {
+      background: #020617;
+      border: 1px solid #334155;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    pre {
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      margin: 12px 0 0;
+      max-height: 300px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: #1e293b;
+    }
+    .badge.ok { color: var(--ok); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge.err { color: var(--err); border: 1px solid rgba(251, 113, 133, 0.35); }
+    .preset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+    .preset { background: #020617; border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>SkyBlink — Platform Function Check</h1>
+      <p>Interactive check page for Backend (<code>platform_api</code>) and Frontend routes. Make sure servers are running via <code>start_all.bat</code>.</p>
+      <div class="row">
+        <label for="apiUrl">API URL:</label>
+        <input id="apiUrl" type="text" value="http://localhost:8000" />
+        <label for="feUrl">Frontend URL:</label>
+        <input id="feUrl" type="text" value="http://localhost:3000" />
+      </div>
+      <div class="chips" id="feLinks"></div>
+    </div>
+
+    <div class="card">
+      <div class="row" style="justify-content: space-between;">
+        <h2>1. Health Check (<code>GET /api/health</code>)</h2>
+        <span id="healthBadge" class="badge">Not tested</span>
+      </div>
+      <div class="row">
+        <button onclick="checkHealth()">Ping /api/health</button>
+      </div>
+      <pre id="healthOut">Click "Ping /api/health" to test.</pre>
+    </div>
+
+    <div class="card">
+      <div class="row" style="justify-content: space-between;">
+        <h2>2. Target &amp; Coordinate Resolver (<code>GET /api/resolve?q=</code>)</h2>
+        <span id="resolveBadge" class="badge">Not tested</span>
+      </div>
+      <div class="row">
+        <input id="resolveInput" type="text" value="WISE 0855" placeholder="Object name or RA/Dec..." />
+        <button onclick="testResolve()">Resolve</button>
+        <button class="secondary" onclick="runResolveSuite()">Run All Format Tests</button>
+      </div>
+      <div class="chips">
+        <button class="chip" onclick="setResolve('WISE 0855')">WISE 0855</button>
+        <button class="chip" onclick="setResolve(&quot;Barnard's Star&quot;)">Barnard's Star</button>
+        <button class="chip" onclick="setResolve('08h55m10.8s -07d14m42s')">08h55m10.8s -07d14m42s</button>
+        <button class="chip" onclick="setResolve('133.795 -7.245')">133.795 -7.245</button>
+        <button class="chip" onclick="setResolve('08:55:10.8 -07:14:42')">08:55:10.8 -07:14:42</button>
+        <button class="chip" onclick="setResolve('nonexistent-xyz-999')">Invalid (404 test)</button>
+      </div>
+      <pre id="resolveOut">Ready.</pre>
+    </div>
+
+    <div class="card">
+      <div class="row" style="justify-content: space-between;">
+        <h2>3. Presets (<code>GET /api/presets</code>)</h2>
+        <span id="presetsBadge" class="badge">Not tested</span>
+      </div>
+      <div class="row">
+        <button onclick="loadPresets()">Load Presets</button>
+        <select id="presetLang" onchange="renderPresets()">
+          <option value="en">EN</option>
+          <option value="ru">RU</option>
+          <option value="uz">UZ</option>
+        </select>
+      </div>
+      <div id="presetCards" class="preset-grid"></div>
+      <pre id="presetsOut">Click "Load Presets" to fetch shared/presets.json from backend.</pre>
+    </div>
+
+    <div class="card">
+      <div class="row" style="justify-content: space-between;">
+        <h2>4. Community Findings (<code>GET/POST /api/findings</code>)</h2>
+        <span id="findingsBadge" class="badge">Not tested</span>
+      </div>
+      <div class="row" style="margin-bottom: 10px;">
+        <button onclick="loadFindings()">List Findings</button>
+      </div>
+      <div class="row">
+        <input id="findRa" type="text" value="133.795129" placeholder="RA" style="max-width:130px; min-width:100px;" />
+        <input id="findDec" type="text" value="-7.245147" placeholder="Dec" style="max-width:130px; min-width:100px;" />
+        <input id="findNote" type="text" value="Test candidate from check.html" placeholder="Note..." />
+        <input id="findNick" type="text" value="Tester" placeholder="Nickname" style="max-width:140px; min-width:100px;" />
+        <button onclick="submitFinding()">Submit Finding (writes to DB)</button>
+      </div>
+      <div class="sub" style="margin-top:8px;margin-bottom:0;">Note: Submit Finding writes a persistent row to the connected backend database.</div>
+      <pre id="findingsOut">Click "List Findings" or submit a test candidate.</pre>
+    </div>
+  </div>
+
+  <script>
+    let cachedPresets = [];
+
+    function apiBase() {
+      return document.getElementById("apiUrl").value.trim().replace(/\/$/, "");
+    }
+    function feBase() {
+      return document.getElementById("feUrl").value.trim().replace(/\/$/, "");
+    }
+    function setBadge(id, ok, text) {
+      const el = document.getElementById(id);
+      el.className = "badge " + (ok ? "ok" : "err");
+      el.textContent = text;
+    }
+
+    async function readJsonSafe(res) {
+      const contentType = res.headers.get("content-type") || "";
+      if (contentType.includes("application/json")) {
+        return await res.json();
+      }
+      const text = await res.text();
+      return { non_json_status: res.status, body: text.slice(0, 500) };
+    }
+
+    function renderFrontendLinks() {
+      const container = document.getElementById("feLinks");
+      container.replaceChildren();
+      let safeBase = "http://localhost:3000";
+      try {
+        const parsed = new URL(feBase());
+        if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+          safeBase = parsed.origin;
+        }
+      } catch {
+        // Fallback to localhost:3000
+      }
+      const routes = [
+        ["EN Home", "/en"],
+        ["RU Home", "/ru"],
+        ["UZ Home", "/uz"],
+        ["About", "/en/about"],
+        ["Findings", "/en/findings"],
+        ["Embed", "/en/embed"],
+      ];
+      routes.forEach(([label, path]) => {
+        const a = document.createElement("a");
+        a.className = "chip";
+        a.href = `${safeBase}${path}`;
+        a.target = "_blank";
+        a.rel = "noreferrer";
+        a.textContent = label;
+        container.appendChild(a);
+      });
+    }
+    document.getElementById("feUrl").addEventListener("input", renderFrontendLinks);
+    renderFrontendLinks();
+
+    async function checkHealth() {
+      const out = document.getElementById("healthOut");
+      const t0 = performance.now();
+      try {
+        const res = await fetch(`${apiBase()}/api/health`);
+        const data = await readJsonSafe(res);
+        const ms = Math.round(performance.now() - t0);
+        setBadge("healthBadge", res.ok, `${res.status} (${ms} ms)`);
+        out.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        setBadge("healthBadge", false, "Failed");
+        out.textContent = String(err);
+      }
+    }
+
+    function setResolve(q) {
+      document.getElementById("resolveInput").value = q;
+      testResolve();
+    }
+
+    async function testResolve() {
+      const q = document.getElementById("resolveInput").value;
+      const out = document.getElementById("resolveOut");
+      try {
+        const res = await fetch(`${apiBase()}/api/resolve?q=${encodeURIComponent(q)}`);
+        const data = await readJsonSafe(res);
+        setBadge("resolveBadge", res.ok, `HTTP ${res.status}`);
+        out.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        setBadge("resolveBadge", false, "Failed");
+        out.textContent = String(err);
+      }
+    }
+
+    async function runResolveSuite() {
+      const cases = [
+        { q: "133.795 -7.245", expectOk: true },
+        { q: "08h55m10.8s -07d14m42s", expectOk: true },
+        { q: "08:55:10.8 -07:14:42", expectOk: true },
+        { q: "WISE 0855", expectOk: true },
+        { q: "Barnard's Star", expectOk: true },
+        { q: "nonexistent-xyz-999", expectOk: false },
+      ];
+      const results = [];
+      let allPassed = true;
+      for (const c of cases) {
+        try {
+          const res = await fetch(`${apiBase()}/api/resolve?q=${encodeURIComponent(c.q)}`);
+          const data = await readJsonSafe(res);
+          const pass = res.ok === c.expectOk;
+          if (!pass) allPassed = false;
+          results.push({ query: c.q, status: res.status, pass, response: data });
+        } catch (err) {
+          allPassed = false;
+          results.push({ query: c.q, pass: false, error: String(err) });
+        }
+      }
+      setBadge("resolveBadge", allPassed, allPassed ? "All 6 passed" : "Some failed");
+      document.getElementById("resolveOut").textContent = JSON.stringify(results, null, 2);
+    }
+
+    async function loadPresets() {
+      const out = document.getElementById("presetsOut");
+      try {
+        const res = await fetch(`${apiBase()}/api/presets`);
+        const data = await readJsonSafe(res);
+        cachedPresets = Array.isArray(data) ? data : [];
+        setBadge("presetsBadge", res.ok && Array.isArray(data), `${cachedPresets.length} presets`);
+        out.textContent = JSON.stringify(data, null, 2);
+        renderPresets();
+      } catch (err) {
+        setBadge("presetsBadge", false, "Failed");
+        out.textContent = String(err);
+      }
+    }
+
+    function renderPresets() {
+      const lang = document.getElementById("presetLang").value;
+      const box = document.getElementById("presetCards");
+      box.replaceChildren();
+      if (!cachedPresets.length) {
+        return;
+      }
+      cachedPresets.forEach((p) => {
+        const card = document.createElement("div");
+        card.className = "preset";
+
+        const titleEl = document.createElement("strong");
+        titleEl.textContent = p.title?.[lang] || p.title?.en || p.slug || "";
+
+        const metaEl = document.createElement("div");
+        metaEl.style.fontSize = "0.78rem";
+        metaEl.style.color = "#94a3b8";
+        metaEl.style.margin = "4px 0";
+        metaEl.textContent = `${p.type} · RA ${p.ra} · Dec ${p.dec} · mode=${p.default_mode}`;
+
+        const shortEl = document.createElement("div");
+        shortEl.style.fontSize = "0.84rem";
+        shortEl.textContent = p.short?.[lang] || p.short?.en || "";
+
+        card.appendChild(titleEl);
+        card.appendChild(metaEl);
+        card.appendChild(shortEl);
+        box.appendChild(card);
+      });
+    }
+
+    async function loadFindings() {
+      const out = document.getElementById("findingsOut");
+      try {
+        const res = await fetch(`${apiBase()}/api/findings`);
+        const data = await readJsonSafe(res);
+        setBadge("findingsBadge", res.ok, `${Array.isArray(data) ? data.length : 0} findings`);
+        out.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        setBadge("findingsBadge", false, "Failed");
+        out.textContent = String(err);
+      }
+    }
+
+    async function submitFinding() {
+      const out = document.getElementById("findingsOut");
+      const raRaw = document.getElementById("findRa").value.trim();
+      const decRaw = document.getElementById("findDec").value.trim();
+      const note = document.getElementById("findNote").value.trim();
+      const nickname = document.getElementById("findNick").value.trim();
+      const ra = Number(raRaw);
+      const dec = Number(decRaw);
+
+      if (!raRaw || !decRaw || !Number.isFinite(ra) || !Number.isFinite(dec) || !note) {
+        setBadge("findingsBadge", false, "Invalid input");
+        out.textContent = "Please provide finite numeric RA, Dec, and a non-empty note.";
+        return;
+      }
+
+      try {
+        const res = await fetch(`${apiBase()}/api/findings`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ra,
+            dec,
+            note,
+            nickname,
+            website: "",
+          }),
+        });
+        const data = await readJsonSafe(res);
+        setBadge("findingsBadge", res.ok, `HTTP ${res.status}`);
+        out.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        setBadge("findingsBadge", false, "Failed");
+        out.textContent = String(err);
+      }
+    }
+  </script>
+</body>
+</html>

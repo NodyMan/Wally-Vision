@@ -1,0 +1,56 @@
+# SkyBlink — никогда не коммитим FITS, кэш и секреты
+*.fits
+*.fits.gz
+backend/.cache/
+research/core/cache/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+node_modules/
+.next/
+backend/db.sqlite3
+*.tsbuildinfo
+next-env.d.ts
+
+# from the platform repository (#3)
+# Python
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+*.sqlite3
+db.sqlite3
+cache/
+backend/staticfiles/
+
+# Node / Next.js
+frontend/.next/
+frontend/out/
+frontend/dist/
+npm-debug.log*
+.vercel
+
+# Env & secrets
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# OS & IDEs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# teammates' separate copies (read-only sources, not part of this repository)
+sky blink #2/
+skyblink/
+skyblink_app/
+# local tooling
+.claude/
+# keep the example env file
+!.env.example

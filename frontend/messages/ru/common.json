@@ -1,0 +1,45 @@
+{
+  "appName": "SkyBlink",
+  "skipToContent": "Перейти к основному содержимому",
+  "tagline": "Находите движущиеся миры и переменные звёзды в данных NASA SPHEREx",
+  "nav": {
+    "home": "Обзор",
+    "viewer": "Просмотр неба",
+    "findings": "Находки",
+    "about": "О проекте"
+  },
+  "language": {
+    "label": "Язык",
+    "en": "English",
+    "ru": "Русский",
+    "uz": "O'zbekcha"
+  },
+  "simpleMode": {
+    "label": "Простой режим",
+    "simple": "Простой",
+    "expert": "Эксперт",
+    "hint": "Скрыть сложные фильтры и научные наложения"
+  },
+  "embed": {
+    "button": "Встроить",
+    "copied": "Код iframe скопирован!",
+    "copyFailed": "Не удалось скопировать — скопируйте вручную:",
+    "openFull": "Открыть в SkyBlink",
+    "waiting": "Встроенный плеер готов для цели"
+  },
+  "status": {
+    "loading": "Загрузка…",
+    "retry": "Повторить",
+    "apiOnline": "Сервер онлайн",
+    "apiWaking": "Подключаемся к архиву NASA…",
+    "apiOffline": "Сервер недоступен"
+  },
+  "notFound": {
+    "title": "Страница не найдена",
+    "body": "Запрошенная страница или участок неба не найдены.",
+    "backHome": "На главную"
+  },
+  "footer": {
+    "credit": "Создано для NASA Space Apps 2026 · Не официальный продукт NASA · Данные: спектральные снимки SPHEREx (IRSA SIA v2: spherex_dr1, spherex_qr3), Gaia DR3 и CatWISE2020 через IRSA TAP · Astropy, reproject · названия: CDS Sesame · карта неба: Aladin Lite (CDS)"
+  }
+}

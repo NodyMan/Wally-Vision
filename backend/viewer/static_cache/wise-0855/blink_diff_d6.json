@@ -1,0 +1,151 @@
+{
+  "target": {
+    "ra": 133.760124,
+    "dec": -7.242241,
+    "name": "WISE J085510.83-071442.5",
+    "coordinate_epoch": 2025.9,
+    "catalog_ra": 133.79513,
+    "catalog_dec": -7.24515,
+    "pm_mas_yr": [
+      -8118.0,
+      680.0
+    ]
+  },
+  "fov_arcsec": 300,
+  "mode": "diff",
+  "grid": {
+    "id": "2e5622327fc6",
+    "width": 49,
+    "height": 49,
+    "pixel_scale_arcsec": 6.15,
+    "pixel_origin": "top-left, 0-based (canvas); wcs_header is FITS (y up, CRPIX 1-based)",
+    "wcs_header": {
+      "WCSAXES": 2,
+      "CRPIX1": 25.0,
+      "CRPIX2": 25.0,
+      "CDELT1": -0.0017083333333333,
+      "CDELT2": 0.0017083333333333,
+      "CUNIT1": "deg",
+      "CUNIT2": "deg",
+      "CTYPE1": "RA---TAN",
+      "CTYPE2": "DEC--TAN",
+      "CRVAL1": 133.76012360803,
+      "CRVAL2": -7.2422411111111,
+      "LONPOLE": 180.0,
+      "LATPOLE": -7.2422411111111,
+      "MJDREF": 0.0,
+      "RADESYS": "ICRS"
+    }
+  },
+  "frames": [
+    {
+      "date_iso": "2025-05-05",
+      "date_end_iso": "2025-05-05",
+      "date_mjd": 60800.7,
+      "n_images": 2,
+      "detector": 6,
+      "wavelength_range_um": [
+        4.412,
+        5.01
+      ],
+      "target_wavelength_um": 4.9854,
+      "target_wavelength_span_um": [
+        4.9674,
+        5.0034
+      ],
+      "target_bandwidth_um": 0.0374,
+      "target_xy": [
+        23.26,
+        24.06
+      ],
+      "id": "f3a3f714108d838ea419",
+      "kind": "diff_vs_median",
+      "url": "/api/frame/f3a3f714108d838ea419.png"
+    },
+    {
+      "date_iso": "2025-11-10",
+      "date_end_iso": "2025-12-13",
+      "date_mjd": 60989.2968,
+      "n_images": 3,
+      "detector": 6,
+      "wavelength_range_um": [
+        4.412,
+        5.01
+      ],
+      "target_wavelength_um": 4.9464,
+      "target_wavelength_span_um": [
+        4.9106,
+        4.9821
+      ],
+      "target_bandwidth_um": 0.0375,
+      "target_xy": [
+        23.97,
+        24.0
+      ],
+      "id": "6e1d4a68b1658aa76bcd",
+      "kind": "diff_vs_median",
+      "url": "/api/frame/6e1d4a68b1658aa76bcd.png"
+    },
+    {
+      "date_iso": "2026-04-21",
+      "date_end_iso": "2026-05-11",
+      "date_mjd": 61151.1979,
+      "n_images": 2,
+      "detector": 6,
+      "wavelength_range_um": [
+        4.412,
+        5.01
+      ],
+      "target_wavelength_um": 4.9493,
+      "target_wavelength_span_um": [
+        4.9312,
+        4.9673
+      ],
+      "target_bandwidth_um": 0.037,
+      "target_xy": [
+        24.56,
+        23.95
+      ],
+      "id": "2a5690764aee1b2e2aa1",
+      "kind": "diff_pair",
+      "pair": [
+        "2025-05-05",
+        "2026-04-21"
+      ],
+      "target_xy_from": [
+        23.26,
+        24.06
+      ],
+      "url": "/api/frame/2a5690764aee1b2e2aa1.png"
+    },
+    {
+      "date_iso": "2026-04-21",
+      "date_end_iso": "2026-05-11",
+      "date_mjd": 61151.1979,
+      "n_images": 2,
+      "detector": 6,
+      "wavelength_range_um": [
+        4.412,
+        5.01
+      ],
+      "target_wavelength_um": 4.9493,
+      "target_wavelength_span_um": [
+        4.9312,
+        4.9673
+      ],
+      "target_bandwidth_um": 0.037,
+      "target_xy": [
+        24.56,
+        23.95
+      ],
+      "id": "1a86a05fd2038ce34f94",
+      "kind": "diff_vs_median",
+      "url": "/api/frame/1a86a05fd2038ce34f94.png"
+    }
+  ],
+  "warnings": [],
+  "flags_summary": {
+    "bad_pixel_fraction": 0.0221,
+    "policy": "display_v1"
+  }
+}

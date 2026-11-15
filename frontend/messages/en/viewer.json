@@ -1,0 +1,147 @@
+{
+  "toolbar": {
+    "label": "Viewer controls"
+  },
+  "player": {
+    "label": "SPHEREx image player",
+    "frameLabel": "SPHEREx image from {date}, frame {index} of {total}",
+    "dates": "{from} – {to}",
+    "pair": "{to} minus {from}",
+    "wavelength": "λ {um} µm"
+  },
+  "tabs": {
+    "label": "Details"
+  },
+  "sidePanel": {
+    "label": "Sky map",
+    "toggle": "Sky map"
+  },
+  "stage": {
+    "queued": "Waiting in line…",
+    "search": "Searching the NASA archive for SPHEREx images…",
+    "download": "Downloading {count} images from NASA…",
+    "stack": "Stacking and aligning frames…",
+    "done": "Done"
+  },
+  "detector": {
+    "label": "Wavelength band",
+    "all": "All bands (separately)",
+    "d1": "0.75–1.1 µm",
+    "d2": "1.1–1.65 µm",
+    "d3": "1.6–2.4 µm",
+    "d4": "2.4–3.8 µm",
+    "d5": "3.8–4.4 µm",
+    "d6": "4.4–5.0 µm — best for brown dwarfs"
+  },
+  "mode": {
+    "frames": "Blink",
+    "diff": "Difference",
+    "sum": "Deep sum",
+    "diffLegend": "Black + white spot side by side = something moved (black: before, white: after)",
+    "label": "View mode"
+  },
+  "rings": {
+    "before": "Where it was",
+    "after": "Where it should be now",
+    "expected": "Where the object should be",
+    "now": "NOW",
+    "was": "WAS"
+  },
+  "warnings": {
+    "wavelength_mismatch": "Epochs were taken at slightly different wavelengths — brightness changes may not be real.",
+    "few_epochs": "Not enough SPHEREx visits here yet for this band.",
+    "partial_download": "Some images could not be downloaded from NASA (server busy).",
+    "wavelength_unknown": "Wavelength could not be read for some images."
+  },
+  "controls": {
+    "playback": "Playback",
+    "play": "Play",
+    "pause": "Pause",
+    "prev": "Previous frame",
+    "next": "Next frame",
+    "frame": "Frame",
+    "speed": "Speed",
+    "fps": "{fps} frames/s",
+    "zoom": "Zoom",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "zoomReset": "Reset zoom",
+    "rings": "Rings",
+    "hint": "Space: play or pause · ← →: frames · mouse wheel or + −: zoom · drag: move · click: pick a pixel"
+  },
+  "diffView": {
+    "label": "Difference view",
+    "pair": "Latest minus earliest",
+    "epochs": "Each visit"
+  },
+  "fov": {
+    "label": "Field of view",
+    "arcmin": "{value}′",
+    "hint": "A wider field takes longer to load"
+  },
+  "state": {
+    "empty": "Choose an object or enter coordinates to see its SPHEREx images.",
+    "error": "Something went wrong while loading the images. Please try again."
+  },
+  "progress": {
+    "label": "Loading SPHEREx images"
+  },
+  "title": {
+    "unnamed": "Sky position",
+    "empty": "Viewer"
+  },
+  "sections": {
+    "view": "View"
+  },
+  "share": {
+    "button": "Share",
+    "copied": "Link copied"
+  },
+  "readout": {
+    "title": "Readout",
+    "visits": "Visits",
+    "images": "Exposures",
+    "dates": "Dates",
+    "wavelength": "Wavelength",
+    "pixel": "Pixel",
+    "masked": "Masked pixels",
+    "picked": "Picked pixel",
+    "none": "—",
+    "shift": "Measured shift",
+    "predicted": "Catalogue predicts",
+    "registration": "Registration check",
+    "registrationValue": "{value}″ ({count} stars)",
+    "shiftNote": "Centroids of the target on {from} and {to} (crosses on the difference frame). The registration check is the apparent shift of fixed stars: our alignment error. Preview measurement.",
+    "coreMasked": "The star's core is saturated (masked), so the shift is measured between the centres of the masked core."
+  },
+  "compass": {
+    "n": "N",
+    "e": "E",
+    "label": "North is up, east is left"
+  },
+  "timeline": {
+    "label": "Time reference",
+    "visits": "Visits",
+    "exposures": "Exposures",
+    "jump": "Show the visit of {date} ({count} exposures)"
+  },
+  "bands": {
+    "label": "Wavelength",
+    "note": "Each band is shown with its own brightness scale. Stars fade towards long wavelengths; very cold objects appear only there.",
+    "open": "Compare all wavelengths",
+    "openHint": "deep sum in 6 bands, 0.75–5.0 µm"
+  },
+  "stats": {
+    "label": "Key numbers",
+    "visits": "Visits",
+    "exposures": "Exposures",
+    "perVisit": "{value} per visit",
+    "shift": "Measured shift",
+    "shiftSub": "± {err}″ · catalogue {expected}″",
+    "notMeasured": "only for objects expected to move",
+    "wavelength": "Wavelength"
+  },
+  "rail": {
+    "label": "Sections"
+  }
+}

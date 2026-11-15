@@ -1,0 +1,67 @@
+{
+  "tabs": {
+    "spectrum": "Spectrum",
+    "lightcurve": "Light curve",
+    "sky": "Sky map"
+  },
+  "catalogs": {
+    "label": "Catalog layers",
+    "gaia": "Gaia",
+    "catwise": "CatWISE",
+    "years": "Arrows show",
+    "yearsValue": "{years} yr",
+    "loading": "Loading catalogs…",
+    "count": "{count} sources; moving and not in Gaia: {lone}"
+  },
+  "needTarget": "Open an object first.",
+  "place": {
+    "picked": "Measuring the pixel you clicked:",
+    "target": "Measuring the target:",
+    "hint": "click any pixel in the image to measure it instead"
+  },
+  "csv": "Download CSV",
+  "yLabel": "Brightness above background, MJy/sr",
+  "spectrum": {
+    "build": "Build spectrum",
+    "slow": "The first time this downloads images from NASA and can take several minutes.",
+    "x": "Wavelength, µm",
+    "aria": "Spectrum, {count} points",
+    "preview": "Preview from {count} single exposures taken on different dates; colour marks the detector band, faint points have quality flags. Not calibrated photometry."
+  },
+  "lightcurve": {
+    "build": "Measure brightness over time (band D{band})",
+    "x": "Date",
+    "aria": "Light curve, {count} points",
+    "preview": "Preview. These exposures saw the object at wavelengths from {from} to {to} µm, so part of the scatter is colour, not variability.",
+    "previewNoWl": "Preview. The wavelength of these exposures is unknown, so part of the scatter may be colour, not variability."
+  },
+  "features": {
+    "h2o": {
+      "short": "H₂O",
+      "text": "water vapour and ice"
+    },
+    "ch4": {
+      "short": "CH₄",
+      "text": "methane, the mark of very cold brown dwarfs and giant planets"
+    },
+    "co2": {
+      "short": "CO₂",
+      "text": "carbon dioxide"
+    },
+    "co": {
+      "short": "CO",
+      "text": "carbon monoxide"
+    }
+  },
+  "sky": {
+    "intro": "See the same place in other sky surveys.",
+    "load": "Load the sky map",
+    "survey": "Survey",
+    "unwise": "unWISE (infrared)",
+    "twomass": "2MASS (near-infrared)",
+    "dss": "DSS2 (visible light)",
+    "failed": "The sky map could not be loaded.",
+    "needTarget": "Open an object first."
+  },
+  "flagged": "Faint points have quality flags set (for example a saturated star)."
+}

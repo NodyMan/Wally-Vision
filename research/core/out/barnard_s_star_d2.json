@@ -1,0 +1,87 @@
+{
+  "target": {
+    "ra": 269.44629017885256,
+    "dec": 4.767916677687781,
+    "name": "Barnard's Star",
+    "coordinate_epoch": 2025.9,
+    "catalog_ra": 269.4520769586187,
+    "catalog_dec": 4.69336496657667,
+    "pm_mas_yr": [
+      -801.6,
+      10362.4
+    ]
+  },
+  "fov_arcsec": 300,
+  "pixel_scale_arcsec": 6.15,
+  "size_px": [
+    49,
+    49
+  ],
+  "grid": {
+    "crval": [
+      269.44629017885256,
+      4.767916677687781
+    ],
+    "crpix": [
+      24,
+      24
+    ],
+    "cdelt_arcsec": 6.15
+  },
+  "detector": 2,
+  "wavelength_range_um": [
+    1.103,
+    1.65
+  ],
+  "frames": [
+    {
+      "date_iso": "2025-08-21",
+      "date_end_iso": "2025-08-30",
+      "date_mjd": 60908.9819,
+      "n_images": 8,
+      "detector": 2,
+      "target_wavelength_um": 1.3778,
+      "target_wavelength_range_um": [
+        1.1011,
+        1.5909
+      ],
+      "target_bandwidth_um": 0.0332
+    },
+    {
+      "date_iso": "2026-03-15",
+      "date_end_iso": "2026-03-22",
+      "date_mjd": 61114.032,
+      "n_images": 8,
+      "detector": 2,
+      "target_wavelength_um": 1.3002,
+      "target_wavelength_range_um": [
+        1.1444,
+        1.5163
+      ],
+      "target_bandwidth_um": 0.0313
+    },
+    {
+      "date_iso": "2026-08-18",
+      "date_end_iso": "2026-09-22",
+      "date_mjd": 61270.8671,
+      "n_images": 7,
+      "detector": 2,
+      "target_wavelength_um": 1.4424,
+      "target_wavelength_range_um": [
+        1.1393,
+        1.5761
+      ],
+      "target_bandwidth_um": 0.035
+    }
+  ],
+  "warnings": [
+    {
+      "code": "wavelength_mismatch",
+      "severity": "warning",
+      "spread_um": 0.1422
+    }
+  ],
+  "baseline_days": 361.9,
+  "failed_cutouts": 1,
+  "elapsed_sec": 372.9
+}

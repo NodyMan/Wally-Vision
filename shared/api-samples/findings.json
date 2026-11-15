@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "ra": 133.795129,
+    "dec": -7.245147,
+    "note": "Faint source moving south-east between epochs in Diff mode.",
+    "nickname": "SkyWatcher",
+    "created_at": "2026-11-14T08:00:00Z",
+    "status": "new"
+  }
+]

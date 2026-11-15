@@ -1,0 +1,25 @@
+{
+  "skip": "O'tkazib yuborish",
+  "next": "Keyingi",
+  "back": "Orqaga",
+  "finish": "Tushunarli",
+  "replay": "Qayta ko'rsatish",
+  "steps": {
+    "1": {
+      "title": "Haqiqiy NASA SPHEREx tasvirlari",
+      "body": "Har bir kadr bir sanadagi infraqizil suratlarni birlashtiradi va osmon koordinatalariga aniq tekislangan."
+    },
+    "2": {
+      "title": "Blink uchun Play tugmasini bosing",
+      "body": "Sanalar orasida o'tish uchun tugmalar yoki klaviatura strelkalaridan foydalaning. Uzoq yulduzlar joyida turadi, yaqin obyektlar siljiydi."
+    },
+    "3": {
+      "title": "Biror narsa sakrayaptimi? Diff ni yoqing",
+      "body": "Diff rejimi o'rtacha osmon fonini ayirib tashlaydi. Harakatlanuvchi obyekt yorug' va qora juftlik sifatida ko'rinadi."
+    },
+    "4": {
+      "title": "Qiziqarli narsa topdingizmi?",
+      "body": "Koordinatalarni saqlash va hamjamiyat bilan bo'lishish uchun \"Men topdim!\" tugmasini bosing."
+    }
+  }
+}

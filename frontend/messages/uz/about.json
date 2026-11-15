@@ -1,0 +1,44 @@
+{
+  "title": "SkyBlink va SPHEREx haqida",
+  "intro": "SkyBlink NASA ning SPHEREx infraqizil osmon sharhini hamma uchun — yangi boshlovchilardan tortib fuqarolik fani ishtirokchilarigacha qulay qiladi.",
+  "sections": {
+    "spherexTitle": "SPHEREx nima?",
+    "spherexBody": "NASA ning SPHEREx kosmik teleskopi taxminan har 6 oyda butun osmonni 102 ta infraqizil kanalda suratga oladi, bu sovuq jigarrang mittilar va o'zgaruvchan yulduzlarni topishga yordam beradi.",
+    "motionTitle": "Nega ba'zi obyektlar harakatlanadi?",
+    "motionBody": "Yaqin yulduzlar va jigarrang mittilar o'z harakati va Yer orbitasining parallaksi tufayli uzoq galaktikalar fonida oylar va yillar davomida siljib ko'rinadi.",
+    "brownDwarfsTitle": "Jigarrang mittilar va Planet X nima?",
+    "brownDwarfsBody": "Jigarrang mittilar — oddiy yorug'likda porlash uchun juda sovuq bo'lgan xira mitti yulduzlar bo'lib, ular asosan infraqizil diapazonda ko'rinadi. Xira harakatlanuvchi manbalarni izlash yaqin jigarrang mittilar va Quyosh tizimidagi uzoq jismlarni topishga yordam beradi.",
+    "artifactsTitle": "Haqiqiy obyektmi yoki artefaktmi?",
+    "artifactsBody": "Kosmik nurlar, nosoz piksellar va detektor chetlari yorqin nuqtaga o'xshab ko'rinishi mumkin. Haqiqiy obyekt qo'shni sanalarda takrorlanadi va tekis siljiydi."
+  },
+  "practice": {
+    "title": "Mashq qiling: haqiqiy signalni toping",
+    "subtitle": "Quyidagi 4 ta simulyatsiya davrini ko'rib chiqing va nimani ko'rayotganingizni aniqlang.",
+    "frameLabel": "Davr",
+    "nextFrame": "Keyingi davr",
+    "play": "Blinkni yoqish",
+    "pause": "Pauza",
+    "choices": {
+      "motion": "Harakatlanuvchi obyekt",
+      "variable": "O'zgaruvchan yulduz",
+      "artifact": "Detektor artefakti"
+    },
+    "correct": "To'g'ri!",
+    "tryAgain": "Unchalik emas — barcha 4 davrda nuqta o'zini qanday tutishiga qarang.",
+    "cases": {
+      "1": {
+        "title": "A-misol: Sekin siljish",
+        "explanation": "Fon yulduzlari joyida turganida manba kadrdan-kadrga bir tekis siljiydi — bu yaqin jigarrang mitti yoki tez harakatlanuvchi yulduz belgisi."
+      },
+      "2": {
+        "title": "B-misol: Yorqinlik o'zgarishi",
+        "explanation": "Yulduz o'z koordinatasidan siljimaydi, lekin sanalar orasida yorqinligi ortib-kamayadi — R Draconis kabi o'zgaruvchan yulduzga xos."
+      },
+      "3": {
+        "title": "C-misol: Bitta kadrdagi chaqnash",
+        "explanation": "Keskin nuqta faqat bitta davrda paydo bo'lib, boshqalarida yo'qoladi — bu haqiqiy osmon jismi emas, balki kosmik nur yoki nosoz piksel."
+      }
+    }
+  },
+  "linksTitle": "Ma'lumot manbalari va ilhom"
+}

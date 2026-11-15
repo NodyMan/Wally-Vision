@@ -1,0 +1,30 @@
+{
+  "title": "Hamjamiyat topilmalari",
+  "subtitle": "SkyBlink tadqiqotchilari tomonidan belgilangan harakatlanuvchi va o'zgaruvchan nomzodlar.",
+  "reportButton": "Men topdim!",
+  "communityTab": "Barcha topilmalar",
+  "myFindings": "Mening topilmalarim",
+  "empty": "Hozircha saqlangan topilmalar yo'q. Ko'rish oynasini ochib, qiziqarli obyektni belgilang!",
+  "myEmpty": "Bu brauzerda hali saqlangan topilmalaringiz yo'q.",
+  "openInViewer": "Ko'rish oynasida ochish",
+  "anonymous": "Tadqiqotchi",
+  "status": {
+    "new": "Yangi",
+    "reviewed": "Tekshirilgan"
+  },
+  "form": {
+    "title": "Nomzodni belgilash",
+    "coordinates": "Koordinatalar (RA / Dec)",
+    "raLabel": "RA (daraja)",
+    "decLabel": "Dec (daraja)",
+    "noteLabel": "Nimani payqadingiz?",
+    "notePlaceholder": "Masalan: xira nuqta sanalar orasida pastga va o'ngga sekin siljimoqda…",
+    "nicknameLabel": "Ism yoki taxallus (ixtiyoriy)",
+    "nicknamePlaceholder": "Tadqiqotchi",
+    "submit": "Topilmani saqlash",
+    "submitting": "Saqlanmoqda…",
+    "cancel": "Bekor qilish",
+    "close": "Yopish",
+    "success": "Topilma saqlandi! Ishtirokingiz uchun rahmat."
+  }
+}

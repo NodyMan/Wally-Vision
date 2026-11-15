@@ -1,0 +1,25 @@
+{
+  "skip": "Skip",
+  "next": "Next",
+  "back": "Back",
+  "finish": "Got it",
+  "replay": "Show tour",
+  "steps": {
+    "1": {
+      "title": "Real NASA SPHEREx snapshots",
+      "body": "Each frame combines infrared exposures taken on different dates, aligned onto the exact same sky grid."
+    },
+    "2": {
+      "title": "Press Play to blink",
+      "body": "Use Play/Pause or arrow keys to flip between dates. Stationary stars stay still; nearby worlds shift."
+    },
+    "3": {
+      "title": "Something jumping? Try Diff mode",
+      "body": "Diff subtracts the average sky. Moving objects stand out as a bright-and-dark pair."
+    },
+    "4": {
+      "title": "Spotted something interesting?",
+      "body": "Click \"I found something!\" to save coordinates and share your candidate with the community."
+    }
+  }
+}

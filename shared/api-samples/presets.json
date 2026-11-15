@@ -1,0 +1,25 @@
+[
+  {
+    "slug": "barnards-star",
+    "ra": 269.4520769,
+    "dec": 4.693365,
+    "type": "high_pm_star",
+    "fov": 300,
+    "default_mode": "frames",
+    "title": {
+      "en": "Barnard's Star",
+      "ru": "Звезда Барнарда",
+      "uz": "Barnard yulduzi"
+    },
+    "short": {
+      "en": "Fastest-moving star across Earth's sky (~10.3″/yr).",
+      "ru": "Самая быстро движущаяся звезда на небе (~10.3″/год).",
+      "uz": "Osmondagi eng tez harakatlanuvchi yulduz (~10.3″/yil)."
+    },
+    "what_you_see": {
+      "en": "Watch the bright star near the center slowly drift upward compared to background stars. Because it is only 6 light-years away, its motion is one of the easiest to spot.",
+      "ru": "Следите за яркой звездой в центре: она постепенно смещается вверх относительно далёких фоновых звёзд. До неё всего 6 световых лет, поэтому её движение заметнее всего.",
+      "uz": "Markazdagi yorqin yulduzga qarang: u uzoq fon yulduzlariga nisbatan sekin yuqoriga siljiydi. U atigi 6 yorug'lik yili uzoqlikda joylashgani uchun harakati yaqqol ko'rinadi."
+    }
+  }
+]

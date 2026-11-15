@@ -1,0 +1,21 @@
+{
+  "no_data": "Ushbu koordinatalar uchun hozircha SPHEREx tasvirlari mavjud emas.",
+  "few_epochs": "Kuzatuv sanalari kam — siljish sezilar-sezilmas bo'lishi mumkin.",
+  "irsa_timeout": "NASA IRSA arxivi javob berishi uzoq cho'zilmoqda. Birozdan so'ng qayta urinib ko'ring.",
+  "fov_too_large": "Tanlangan ko'rish maydoni juda katta. Kichikroq hududni tanlang.",
+  "not_found": "Obyekt topilmadi yoki koordinatalar formati aniqlanmadi.",
+  "network_error": "SkyBlink serveriga ulanishda tarmoq xatosi yuz berdi.",
+  "rate_limited": "Qisqa vaqtda juda ko'p so'rov yuborildi. Keyinroq urinib ko'ring.",
+  "validation_error": "Kiritilgan maydonlar va koordinatalarni tekshiring.",
+  "invalid_submission": "Yuborilgan koordinatalar yoki izoh qabul qilinmadi.",
+  "unknown": "Xatolik yuz berdi. Qayta urinib ko'ring.",
+  "invalid_coordinates": "Koordinatalar noto‘g‘ri. RA 0 dan 360° gacha, Dec −90° dan +90° gacha.",
+  "invalid_parameters": "So‘rov noto‘g‘ri.",
+  "unsupported_product": "Bu turdagi ma’lumot qo‘llab-quvvatlanmaydi.",
+  "wavelength_mismatch": "Tashriflar turli to‘lqin uzunliklarida olingan, ularni adolatli solishtirib bo‘lmaydi.",
+  "catalog_unavailable": "Kataloglar hozir mavjud emas.",
+  "busy": "Server band. Bir daqiqadan so‘ng qayta urinib ko‘ring.",
+  "server_error": "Nimadir xato ketdi. Qayta urinib ko‘ring.",
+  "aborted": "So‘rov bekor qilindi.",
+  "cold_disabled": "Bu demo server topshiriqdagi 5 ta obyektni va tayyorlangan maydonlarni ko‘rsatadi. Boshqa koordinatalar uchun SkyBlink’ni mahalliy ishga tushiring (README’ga qarang)."
+}
