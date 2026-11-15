@@ -7,20 +7,30 @@ export let API_BASE_URL =
   CONFIGURED_API || (IN_BROWSER_PROD ? window.location.origin : "http://localhost:8000");
 
 /**
- * Resolves once the API base is final. In a production browser with a configured backend, the backend is
- * asked for /api/health first; if it does not answer within 6 s (paused, asleep, gone), the site falls back
- * to its own demo API. Every API call awaits this before building its URL.
+ * Resolves once the API base is final. In a production browser the configured backend, then the public
+ * Render backend, are asked for /api/health; the first that answers within 6 s is used. If none does
+ * (paused, asleep, gone), the site uses its own demo API. Every API call awaits this before building its URL.
  */
-export const apiReady: Promise<void> =
-  CONFIGURED_API && IN_BROWSER_PROD
-    ? fetch(`${CONFIGURED_API}/api/health`, { cache: "no-store", signal: AbortSignal.timeout(6000) })
-        .then((r) => {
-          if (!r.ok) throw new Error(`backend ${r.status}`);
-        })
-        .catch(() => {
-          API_BASE_URL = window.location.origin;
-        })
-    : Promise.resolve();
+// the team's public backend (Render); tried after NEXT_PUBLIC_API_URL, before the demo API
+const PUBLIC_BACKEND = "https://skyblink-api.onrender.com";
+
+async function pickBackend(): Promise<void> {
+  const candidates = [...new Set([CONFIGURED_API, PUBLIC_BACKEND].filter(Boolean) as string[])];
+  for (const base of candidates) {
+    try {
+      const r = await fetch(`${base}/api/health`, { cache: "no-store", signal: AbortSignal.timeout(6000) });
+      if (r.ok) {
+        API_BASE_URL = base;
+        return;
+      }
+    } catch {
+      // try the next one
+    }
+  }
+  API_BASE_URL = window.location.origin;
+}
+
+export const apiReady: Promise<void> = IN_BROWSER_PROD ? pickBackend() : Promise.resolve();
 
 export type HealthResponse = {
   status: string;
